@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Chess Dashboard Generator
-Fetches chess.com data and generates a GitHub README dashboard.
+Fetches chess.com data and generates a GitHub Pages website.
 """
 
 import json
@@ -48,25 +48,21 @@ def get_opening_fen(opening_name):
     """Find the best matching FEN for an opening."""
     name_lower = opening_name.lower()
 
-    # Try exact matches first
     for key, fen in OPENING_FENS.items():
         if key in name_lower or name_lower in key:
             return fen
 
-    # Try partial word matches
     words = name_lower.split()
     for key, fen in OPENING_FENS.items():
         key_words = key.split()
         if any(w in key_words for w in words if len(w) > 3):
             return fen
 
-    # Default to starting position
     return "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"
 
 
-def get_board_image_url(fen, size=180):
+def get_board_image_url(fen):
     """Generate a Lichess board image URL from FEN."""
-    # Use Lichess board image API
     encoded_fen = urllib.parse.quote(fen, safe='')
     return f"https://lichess1.org/export/fen.gif?fen={encoded_fen}&color=white&theme=brown&piece=cburnett"
 
@@ -112,34 +108,6 @@ def get_rating_history(games, username):
     return history
 
 
-def generate_elo_chart(rating_history):
-    """Generate ASCII/text ELO chart for README."""
-    if not rating_history:
-        return "No rating data available."
-
-    # Get last 30 data points
-    recent = rating_history[-30:]
-    ratings = [r["rating"] for r in recent]
-
-    min_r = min(ratings)
-    max_r = max(ratings)
-    range_r = max_r - min_r or 1
-
-    # Create sparkline-style chart
-    chart_chars = "▁▂▃▄▅▆▇█"
-    sparkline = ""
-    for r in ratings:
-        idx = int((r - min_r) / range_r * (len(chart_chars) - 1))
-        sparkline += chart_chars[idx]
-
-    current = ratings[-1]
-    start = ratings[0]
-    change = current - start
-    trend = "📈" if change >= 0 else "📉"
-
-    return current, min_r, max_r, change, sparkline, trend, len(recent)
-
-
 def analyze_openings(games, username):
     """Analyze opening performance."""
     opening_stats = defaultdict(lambda: {"wins": 0, "losses": 0, "draws": 0, "eco": ""})
@@ -167,7 +135,6 @@ def analyze_openings(games, username):
             opening_stats[opening_name][outcome] += 1
             opening_stats[opening_name]["eco"] = eco
 
-    # Calculate win rates
     openings = []
     for name, stats in opening_stats.items():
         total = stats["wins"] + stats["losses"] + stats["draws"]
@@ -241,7 +208,7 @@ def get_last_game(games, username):
 def analyze_game_with_claude(game, username):
     """Use Claude to analyze the most recent game."""
     if not ANTHROPIC_API_KEY:
-        return ["API key not configured", "Add ANTHROPIC_API_KEY to secrets", "See README for instructions"]
+        return "<p>API key not configured. Add ANTHROPIC_API_KEY to secrets.</p>"
 
     is_white = game["white"]["username"].lower() == username.lower()
     player = game["white"] if is_white else game["black"]
@@ -261,25 +228,45 @@ Time Control: {game.get('time_control', 'unknown')}
 PGN:
 {pgn}
 
-Please provide:
-1. **Opening Assessment**: How did the opening go? Any inaccuracies?
-2. **Critical Moment**: Identify THE key turning point with specific moves (e.g., "After 15. Nxe5, the position changed because...")
-3. **Tactical Opportunities**: Any missed tactics or nice combinations?
-4. **Endgame Notes**: If applicable, how was the endgame handled?
-5. **Key Lesson**: One main takeaway for improvement
+Please provide analysis in this exact HTML format (no markdown, just HTML):
 
-Format your response in markdown with headers. Be specific about move numbers. Keep each section to 2-3 sentences max. Use chess notation when referencing moves."""
+<div class="analysis-section">
+<h4>Opening Assessment</h4>
+<p>[2-3 sentences about the opening, any inaccuracies]</p>
+</div>
+
+<div class="analysis-section">
+<h4>Critical Moment</h4>
+<p>[Identify THE key turning point with specific moves like "After 15. Nxe5..." - 2-3 sentences]</p>
+</div>
+
+<div class="analysis-section">
+<h4>Tactical Opportunities</h4>
+<p>[Any missed tactics or nice combinations - 2-3 sentences]</p>
+</div>
+
+<div class="analysis-section">
+<h4>Endgame Notes</h4>
+<p>[If applicable, how was the endgame handled - 2-3 sentences]</p>
+</div>
+
+<div class="analysis-section highlight">
+<h4>Key Lesson</h4>
+<p>[One main takeaway for improvement - make this memorable and actionable]</p>
+</div>
+
+Be specific about move numbers. Use chess notation when referencing moves."""
 
     try:
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
         message = client.messages.create(
             model="claude-sonnet-4-20250514",
-            max_tokens=800,
+            max_tokens=1000,
             messages=[{"role": "user", "content": prompt}]
         )
         return message.content[0].text
     except Exception as e:
-        return f"Analysis error: {str(e)[:100]}"
+        return f"<p class='error'>Analysis error: {str(e)[:100]}</p>"
 
 
 def analyze_endgames(games, username):
@@ -357,18 +344,10 @@ def analyze_endgames(games, username):
     return stats
 
 
-def generate_progress_bar(percentage, length=10):
-    """Generate a text progress bar."""
-    filled = int(percentage / 100 * length)
-    empty = length - filled
-    return "█" * filled + "░" * empty
-
-
-def generate_readme(username, stats, games):
-    """Generate the README.md dashboard."""
+def generate_html(username, stats, games):
+    """Generate the index.html dashboard."""
     # Get all data
     rating_history = get_rating_history(games, username)
-    chart_data = generate_elo_chart(rating_history)
     best_openings, worst_openings = analyze_openings(games, username)
     streak_text, streak_count, streak_type = get_current_streak(games, username)
     last_game = get_last_game(games, username)
@@ -385,89 +364,69 @@ def generate_readme(username, stats, games):
     total_games = wins + losses + draws
     win_rate = (wins / total_games * 100) if total_games > 0 else 0
 
-    # Chart data
-    if chart_data != "No rating data available.":
-        current, min_r, max_r, change, sparkline, trend, num_games = chart_data
-    else:
-        current, min_r, max_r, change, sparkline, trend, num_games = "N/A", 0, 0, 0, "", "📊", 0
+    # Rating chart data
+    recent_ratings = rating_history[-30:] if rating_history else []
+    ratings_json = json.dumps([r["rating"] for r in recent_ratings])
+    dates_json = json.dumps([r["date"] for r in recent_ratings])
 
-    # Generate last game analysis
+    # Last game info
     if last_game:
         analysis = analyze_game_with_claude(last_game, username)
         is_white = last_game["white"]["username"].lower() == username.lower()
         player = last_game["white"] if is_white else last_game["black"]
         opponent = last_game["black"] if is_white else last_game["white"]
-        player_color = "White ⬜" if is_white else "Black ⬛"
-        game_result = "Won ✓" if player["result"] == "win" else "Lost ✗" if player["result"] in ["checkmated", "timeout", "resigned", "abandoned"] else "Drew ="
+        player_color = "White" if is_white else "Black"
+        color_icon = "&#9817;" if is_white else "&#9823;"
+        game_result = "Won" if player["result"] == "win" else "Lost" if player["result"] in ["checkmated", "timeout", "resigned", "abandoned"] else "Drew"
+        result_class = "win" if game_result == "Won" else "loss" if game_result == "Lost" else "draw"
         game_url = last_game.get("url", "")
         time_control = last_game.get("time_control", "")
 
-        # Parse time control
         if time_control:
             try:
                 base = int(time_control.split("+")[0])
-                if base < 180:
-                    tc_label = "Bullet"
-                elif base < 600:
-                    tc_label = "Blitz"
-                else:
-                    tc_label = "Rapid"
+                tc_label = "Bullet" if base < 180 else "Blitz" if base < 600 else "Rapid"
             except:
                 tc_label = "Rapid"
         else:
             tc_label = ""
     else:
-        analysis = "No recent games to analyze."
+        analysis = "<p>No recent games to analyze.</p>"
         game_result = "N/A"
+        result_class = ""
         game_url = ""
         player_color = ""
+        color_icon = ""
         tc_label = ""
         opponent = {"username": "N/A", "rating": "N/A"}
 
     # Streak styling
-    if streak_type == "win":
-        streak_emoji = "🔥"
-        streak_badge_color = "brightgreen"
-    elif streak_type == "loss":
-        streak_emoji = "❄️"
-        streak_badge_color = "red"
-    else:
-        streak_emoji = "➖"
-        streak_badge_color = "yellow"
+    streak_class = "win" if streak_type == "win" else "loss" if streak_type == "loss" else "draw"
+    streak_icon = "&#128293;" if streak_type == "win" else "&#10052;" if streak_type == "loss" else "&#10134;"
 
-    # Build openings section with images
-    def format_opening_card(o, is_best=True):
+    # Opening cards
+    def opening_card(o, is_best=True):
         fen = get_opening_fen(o['name'])
         img_url = get_board_image_url(fen)
-        emoji = "🏆" if is_best else "📚"
-        win_bar = generate_progress_bar(o['win_rate'])
+        card_class = "best" if is_best else "worst"
+        return f'''
+        <div class="opening-card {card_class}">
+            <img src="{img_url}" alt="{o['name'][:30]}">
+            <h4>{o['name'][:28]}</h4>
+            <div class="win-rate">
+                <div class="progress-bar">
+                    <div class="progress" style="width: {o['win_rate']}%"></div>
+                </div>
+                <span>{o['win_rate']:.0f}%</span>
+            </div>
+            <div class="record">{o['wins']}W - {o['losses']}L - {o['draws']}D</div>
+        </div>
+        '''
 
-        return f"""<td align="center" width="200">
-<img src="{img_url}" width="120" alt="{o['name'][:30]}"/><br/>
-<strong>{o['name'][:25]}</strong><br/>
-<code>{win_bar} {o['win_rate']:.0f}%</code><br/>
-<sub>{o['wins']}W - {o['losses']}L - {o['draws']}D</sub>
-</td>"""
+    best_openings_html = "".join([opening_card(o, True) for o in best_openings]) or "<p>Not enough data yet</p>"
+    worst_openings_html = "".join([opening_card(o, False) for o in worst_openings]) or "<p>Not enough data yet</p>"
 
-    best_openings_html = ""
-    if best_openings:
-        best_openings_html = "<table><tr>\n"
-        for o in best_openings:
-            best_openings_html += format_opening_card(o, True) + "\n"
-        best_openings_html += "</tr></table>"
-    else:
-        best_openings_html = "<em>Not enough data yet</em>"
-
-    worst_openings_html = ""
-    if worst_openings:
-        worst_openings_html = "<table><tr>\n"
-        for o in worst_openings:
-            worst_openings_html += format_opening_card(o, False) + "\n"
-        worst_openings_html += "</tr></table>"
-    else:
-        worst_openings_html = "<em>Not enough data yet</em>"
-
-    # Build endgame section
+    # Endgame stats
     winning_total = endgame_stats["winning_converted"] + endgame_stats["winning_drawn"] + endgame_stats["winning_lost"]
     conversion_rate = (endgame_stats["winning_converted"] / winning_total * 100) if winning_total > 0 else 0
 
@@ -477,145 +436,555 @@ def generate_readme(username, stats, games):
     equal_total = endgame_stats['equal_won'] + endgame_stats['equal_drawn'] + endgame_stats['equal_lost']
     equal_win_rate = (endgame_stats['equal_won'] / equal_total * 100) if equal_total > 0 else 0
 
-    # Generate README
-    readme = f"""<div align="center">
+    html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{username}'s Chess Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
 
-# ♟️ {username}'s Chess Dashboard
+        body {{
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 2rem;
+        }}
 
-<img src="https://img.shields.io/badge/Rating-{current_rating}-blue?style=for-the-badge&logo=lichess&logoColor=white" alt="Rating"/>
-<img src="https://img.shields.io/badge/Best-{best_rating}-gold?style=for-the-badge" alt="Best"/>
-<img src="https://img.shields.io/badge/Win_Rate-{win_rate:.0f}%25-green?style=for-the-badge" alt="Win Rate"/>
-<img src="https://img.shields.io/badge/{streak_text.replace(' ', '_')}-{streak_badge_color}?style=for-the-badge" alt="Streak"/>
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+        }}
 
-<sub>Auto-updated every hour • Last update: {datetime.now().strftime("%Y-%m-%d %H:%M UTC")}</sub>
+        header {{
+            text-align: center;
+            margin-bottom: 3rem;
+        }}
 
-</div>
+        h1 {{
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }}
 
----
+        .subtitle {{
+            color: #888;
+            font-size: 0.9rem;
+        }}
 
-## 📊 Stats at a Glance
+        .stats-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }}
 
-<table>
-<tr>
-<td align="center" width="150">
-<h3>🎯</h3>
-<h2>{current_rating}</h2>
-<sub>Current Rating</sub>
-</td>
-<td align="center" width="150">
-<h3>⭐</h3>
-<h2>{best_rating}</h2>
-<sub>Peak Rating</sub>
-</td>
-<td align="center" width="150">
-<h3>✅</h3>
-<h2>{wins}</h2>
-<sub>Wins</sub>
-</td>
-<td align="center" width="150">
-<h3>❌</h3>
-<h2>{losses}</h2>
-<sub>Losses</sub>
-</td>
-<td align="center" width="150">
-<h3>➖</h3>
-<h2>{draws}</h2>
-<sub>Draws</sub>
-</td>
-</tr>
-</table>
+        .stat-card {{
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }}
 
-### {streak_emoji} Current Streak: {streak_text}
+        .stat-card:hover {{
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+        }}
 
----
+        .stat-card .icon {{
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }}
 
-## 📈 Rating Trend
+        .stat-card .value {{
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }}
 
-```
-{trend} {'+' if change >= 0 else ''}{change} over last {num_games} games
+        .stat-card .label {{
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }}
 
-{sparkline}
+        .stat-card.win .value {{ color: #4ade80; }}
+        .stat-card.loss .value {{ color: #f87171; }}
+        .stat-card.draw .value {{ color: #fbbf24; }}
 
-     Low: {min_r}                    High: {max_r}
-```
+        .streak-badge {{
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 1rem 0 2rem;
+        }}
 
----
+        .streak-badge.win {{
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(34, 197, 94, 0.1));
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: #4ade80;
+        }}
 
-## 📖 Opening Performance
+        .streak-badge.loss {{
+            background: linear-gradient(135deg, rgba(248, 113, 113, 0.2), rgba(239, 68, 68, 0.1));
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            color: #f87171;
+        }}
 
-### 🏆 Best Openings
+        .streak-badge.draw {{
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.1));
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+        }}
 
-{best_openings_html}
+        section {{
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }}
 
-### 📚 Openings to Study
+        h2 {{
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }}
 
-{worst_openings_html}
+        h2 .emoji {{
+            font-size: 1.75rem;
+        }}
 
----
+        .chart-container {{
+            height: 250px;
+            position: relative;
+        }}
 
-## 🎮 Most Recent Game
+        .openings-container {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }}
 
-<table>
-<tr>
-<td width="50%">
+        .opening-card {{
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }}
 
-### {game_result}
+        .opening-card:hover {{
+            transform: scale(1.02);
+        }}
 
-| | |
-|---|---|
-| **Played as** | {player_color} |
-| **Opponent** | {opponent['username']} ({opponent['rating']}) |
-| **Format** | {tc_label} |
+        .opening-card.best {{
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }}
 
-<a href="{game_url}">
-<img src="https://img.shields.io/badge/View_Game-chess.com-green?style=for-the-badge&logo=chess.com" alt="View Game"/>
-</a>
+        .opening-card.worst {{
+            border: 1px solid rgba(248, 113, 113, 0.3);
+        }}
 
-</td>
-</tr>
-</table>
+        .opening-card img {{
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }}
 
-### 🔍 Game Analysis
+        .opening-card h4 {{
+            font-size: 0.9rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            height: 2.5em;
+            overflow: hidden;
+        }}
 
-{analysis}
+        .win-rate {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }}
 
----
+        .progress-bar {{
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }}
 
-## ♔ Endgame Performance
+        .progress {{
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }}
 
-<table>
-<tr>
-<td align="center" width="250">
-<h3>⬆️ Winning Positions</h3>
-<code>{generate_progress_bar(conversion_rate)} {conversion_rate:.0f}%</code><br/>
-<strong>{endgame_stats["winning_converted"]}</strong> converted / {winning_total} games<br/>
-<sub>Drew {endgame_stats["winning_drawn"]} • Lost {endgame_stats["winning_lost"]}</sub>
-</td>
-<td align="center" width="250">
-<h3>⬇️ Losing Positions</h3>
-<code>{generate_progress_bar(save_rate)} {save_rate:.0f}%</code><br/>
-<strong>{endgame_stats["losing_saved"]}</strong> saved / {losing_total} games<br/>
-<sub>Wins + Draws from losing</sub>
-</td>
-<td align="center" width="250">
-<h3>⚖️ Equal Positions</h3>
-<code>{generate_progress_bar(equal_win_rate)} {equal_win_rate:.0f}%</code><br/>
-<strong>{endgame_stats["equal_won"]}</strong> won / {equal_total} games<br/>
-<sub>Drew {endgame_stats["equal_drawn"]} • Lost {endgame_stats["equal_lost"]}</sub>
-</td>
-</tr>
-</table>
+        .opening-card.best .progress {{
+            background: linear-gradient(90deg, #4ade80, #22c55e);
+        }}
 
----
+        .opening-card.worst .progress {{
+            background: linear-gradient(90deg, #f87171, #ef4444);
+        }}
 
-<div align="center">
+        .record {{
+            font-size: 0.8rem;
+            color: #888;
+        }}
 
-<sub>Powered by <a href="https://www.chess.com/member/{username}">Chess.com</a> API & Claude AI</sub>
+        .game-header {{
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }}
 
-</div>
-"""
+        .result-badge {{
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 12px;
+        }}
 
-    return readme
+        .result-badge.win {{
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+        }}
+
+        .result-badge.loss {{
+            background: rgba(248, 113, 113, 0.2);
+            color: #f87171;
+        }}
+
+        .result-badge.draw {{
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }}
+
+        .game-meta {{
+            display: flex;
+            gap: 2rem;
+            color: #888;
+        }}
+
+        .game-meta span {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }}
+
+        .game-meta .color-icon {{
+            font-size: 1.5rem;
+        }}
+
+        .view-game-btn {{
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-left: auto;
+            transition: opacity 0.2s;
+        }}
+
+        .view-game-btn:hover {{
+            opacity: 0.9;
+        }}
+
+        .analysis-section {{
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }}
+
+        .analysis-section h4 {{
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }}
+
+        .analysis-section p {{
+            line-height: 1.6;
+            color: #ccc;
+        }}
+
+        .analysis-section.highlight {{
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }}
+
+        .analysis-section.highlight h4 {{
+            color: #a78bfa;
+        }}
+
+        .endgame-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }}
+
+        .endgame-card {{
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }}
+
+        .endgame-card h4 {{
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }}
+
+        .endgame-card .big-number {{
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }}
+
+        .endgame-card.winning .big-number {{ color: #4ade80; }}
+        .endgame-card.losing .big-number {{ color: #f87171; }}
+        .endgame-card.equal .big-number {{ color: #fbbf24; }}
+
+        .endgame-card .detail {{
+            color: #888;
+            font-size: 0.85rem;
+        }}
+
+        footer {{
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+        }}
+
+        footer a {{
+            color: #667eea;
+            text-decoration: none;
+        }}
+
+        @media (max-width: 768px) {{
+            body {{
+                padding: 1rem;
+            }}
+
+            h1 {{
+                font-size: 1.75rem;
+            }}
+
+            .stats-grid {{
+                grid-template-columns: repeat(2, 1fr);
+            }}
+
+            .game-header {{
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }}
+
+            .view-game-btn {{
+                margin-left: 0;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>&#9823; {username}'s Chess Dashboard</h1>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: {datetime.now().strftime("%Y-%m-%d %H:%M UTC")}</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="icon">&#127919;</div>
+                <div class="value">{current_rating}</div>
+                <div class="label">Current Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">&#11088;</div>
+                <div class="value">{best_rating}</div>
+                <div class="label">Peak Rating</div>
+            </div>
+            <div class="stat-card win">
+                <div class="icon">&#9989;</div>
+                <div class="value">{wins}</div>
+                <div class="label">Wins</div>
+            </div>
+            <div class="stat-card loss">
+                <div class="icon">&#10060;</div>
+                <div class="value">{losses}</div>
+                <div class="label">Losses</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">&#10134;</div>
+                <div class="value">{draws}</div>
+                <div class="label">Draws</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">&#128200;</div>
+                <div class="value">{win_rate:.0f}%</div>
+                <div class="label">Win Rate</div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <div class="streak-badge {streak_class}">
+                <span>{streak_icon}</span>
+                <span>Current Streak: {streak_text}</span>
+            </div>
+        </div>
+
+        <section>
+            <h2><span class="emoji">&#128200;</span> Rating Trend</h2>
+            <div class="chart-container">
+                <canvas id="ratingChart"></canvas>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">&#127942;</span> Best Openings</h2>
+            <div class="openings-container">
+                {best_openings_html}
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">&#128218;</span> Openings to Study</h2>
+            <div class="openings-container">
+                {worst_openings_html}
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
+            <div class="game-header">
+                <div class="result-badge {result_class}">{game_result}</div>
+                <div class="game-meta">
+                    <span><span class="color-icon">{color_icon}</span> Played as {player_color}</span>
+                    <span>vs {opponent['username']} ({opponent['rating']})</span>
+                    <span>{tc_label}</span>
+                </div>
+                <a href="{game_url}" class="view-game-btn" target="_blank">View Game &#8594;</a>
+            </div>
+
+            <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
+            {analysis}
+        </section>
+
+        <section>
+            <h2><span class="emoji">&#9812;</span> Endgame Performance</h2>
+            <div class="endgame-grid">
+                <div class="endgame-card winning">
+                    <h4>&#11014;&#65039; Winning Positions</h4>
+                    <div class="big-number">{conversion_rate:.0f}%</div>
+                    <div class="detail">{endgame_stats["winning_converted"]} converted / {winning_total} games</div>
+                    <div class="detail">Drew {endgame_stats["winning_drawn"]} &bull; Lost {endgame_stats["winning_lost"]}</div>
+                </div>
+                <div class="endgame-card losing">
+                    <h4>&#11015;&#65039; Losing Positions</h4>
+                    <div class="big-number">{save_rate:.0f}%</div>
+                    <div class="detail">{endgame_stats["losing_saved"]} saved / {losing_total} games</div>
+                    <div class="detail">Wins + Draws from behind</div>
+                </div>
+                <div class="endgame-card equal">
+                    <h4>&#9878;&#65039; Equal Positions</h4>
+                    <div class="big-number">{equal_win_rate:.0f}%</div>
+                    <div class="detail">{endgame_stats["equal_won"]} won / {equal_total} games</div>
+                    <div class="detail">Drew {endgame_stats["equal_drawn"]} &bull; Lost {endgame_stats["equal_lost"]}</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Powered by <a href="https://www.chess.com/member/{username}" target="_blank">Chess.com</a> API &amp; Claude AI</p>
+        </footer>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('ratingChart').getContext('2d');
+        const ratings = {ratings_json};
+        const dates = {dates_json};
+
+        new Chart(ctx, {{
+            type: 'line',
+            data: {{
+                labels: dates,
+                datasets: [{{
+                    label: 'Rating',
+                    data: ratings,
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 6,
+                    pointHoverBackgroundColor: '#667eea',
+                }}]
+            }},
+            options: {{
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {{
+                    legend: {{
+                        display: false
+                    }},
+                    tooltip: {{
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        displayColors: false,
+                    }}
+                }},
+                scales: {{
+                    x: {{
+                        display: false
+                    }},
+                    y: {{
+                        grid: {{
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        }},
+                        ticks: {{
+                            color: '#888'
+                        }}
+                    }}
+                }}
+            }}
+        }});
+    </script>
+</body>
+</html>'''
+
+    return html
 
 
 def main():
@@ -625,12 +994,12 @@ def main():
     print(f"Found {len(games)} games")
 
     print("Generating dashboard...")
-    readme = generate_readme(USERNAME, stats, games)
+    html = generate_html(USERNAME, stats, games)
 
-    with open("README.md", "w") as f:
-        f.write(readme)
+    with open("index.html", "w") as f:
+        f.write(html)
 
-    print("Dashboard saved to README.md")
+    print("Dashboard saved to index.html")
 
 
 if __name__ == "__main__":
