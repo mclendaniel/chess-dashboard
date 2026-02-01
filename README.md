@@ -46,9 +46,7 @@ Low: 664  High: 710
 [View Game](https://www.chess.com/game/live/164068499472)
 
 ### Analysis:
-API key not configured
-Add ANTHROPIC_API_KEY to secrets
-See README for instructions
+Analysis error: Error code: 401 - {'type': 'error', 'error': {'typ
 
 ---
 
@@ -62,6 +60,6 @@ See README for instructions
 
 ---
 
-*Last updated: 2026-02-01 01:38 UTC*
+*Last updated: 2026-02-01 06:48 UTC*
 
 *Powered by [Chess.com API](https://www.chess.com/news/view/published-data-api) and Claude AI*
