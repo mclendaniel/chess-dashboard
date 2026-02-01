@@ -790,6 +790,74 @@ def generate_html(username, stats, games):
             text-decoration: none;
         }}
 
+        .refresh-btn {{
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }}
+
+        .refresh-btn:hover {{
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }}
+
+        .refresh-btn:disabled {{
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }}
+
+        .refresh-btn.loading .refresh-icon {{
+            animation: spin 1s linear infinite;
+        }}
+
+        @keyframes spin {{
+            from {{ transform: rotate(0deg); }}
+            to {{ transform: rotate(360deg); }}
+        }}
+
+        .refresh-icon {{
+            font-size: 1.2rem;
+            display: inline-block;
+        }}
+
+        .toast {{
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }}
+
+        .toast.show {{
+            opacity: 1;
+        }}
+
+        .toast.success {{
+            border: 1px solid rgba(74, 222, 128, 0.5);
+        }}
+
+        .toast.error {{
+            border: 1px solid rgba(248, 113, 113, 0.5);
+        }}
+
         @media (max-width: 768px) {{
             body {{
                 padding: 1rem;
@@ -820,6 +888,9 @@ def generate_html(username, stats, games):
         <header>
             <h1>&#9823; {username}'s Chess Dashboard</h1>
             <p class="subtitle">Auto-updated every hour &bull; Last update: {datetime.now().strftime("%Y-%m-%d %H:%M UTC")}</p>
+            <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
+                <span class="refresh-icon">&#8635;</span> Update Now
+            </button>
         </header>
 
         <div class="stats-grid">
@@ -980,6 +1051,51 @@ def generate_html(username, stats, games):
                 }}
             }}
         }});
+    </script>
+    <div id="toast" class="toast"></div>
+
+    <script>
+        const API_URL = 'https://chess-dashboard-delta.vercel.app/api/refresh';
+
+        function showToast(message, type) {{
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast show ' + type;
+            setTimeout(() => {{
+                toast.className = 'toast';
+            }}, 4000);
+        }}
+
+        async function refreshDashboard() {{
+            const btn = document.getElementById('refreshBtn');
+            btn.disabled = true;
+            btn.classList.add('loading');
+            btn.innerHTML = '<span class="refresh-icon">&#8635;</span> Updating...';
+
+            try {{
+                const response = await fetch(API_URL, {{
+                    method: 'POST',
+                }});
+
+                const data = await response.json();
+
+                if (response.ok) {{
+                    showToast('Update triggered! Page will refresh in ~60 seconds.', 'success');
+                    // Auto-reload after 60 seconds
+                    setTimeout(() => {{
+                        window.location.reload();
+                    }}, 60000);
+                }} else {{
+                    showToast('Error: ' + (data.error || 'Unknown error'), 'error');
+                }}
+            }} catch (error) {{
+                showToast('Error: ' + error.message, 'error');
+            }} finally {{
+                btn.disabled = false;
+                btn.classList.remove('loading');
+                btn.innerHTML = '<span class="refresh-icon">&#8635;</span> Update Now';
+            }}
+        }}
     </script>
 </body>
 </html>'''
