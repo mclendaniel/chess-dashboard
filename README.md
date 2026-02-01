@@ -46,7 +46,9 @@ Low: 664  High: 710
 [View Game](https://www.chess.com/game/live/164068499472)
 
 ### Analysis:
-Analysis error: Error code: 401 - {'type': 'error', 'error': {'typ
+• White's early attack (moves 11-17) was promising but lacked follow-through after winning material
+• Black's counterplay with Qxf2 (move 19) created decisive tactical opportunities despite material deficit
+• White's repetitive knight checks (moves 54-63) showed desperation instead of finding winning moves
 
 ---
 
@@ -60,6 +62,6 @@ Analysis error: Error code: 401 - {'type': 'error', 'error': {'typ
 
 ---
 
-*Last updated: 2026-02-01 06:48 UTC*
+*Last updated: 2026-02-01 06:49 UTC*
 
 *Powered by [Chess.com API](https://www.chess.com/news/view/published-data-api) and Claude AI*
