@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skilletobviously's Chess Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .stat-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-card .label {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .stat-card.win .value { color: #4ade80; }
+        .stat-card.loss .value { color: #f87171; }
+        .stat-card.draw .value { color: #fbbf24; }
+
+        .streak-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .streak-badge.win {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(34, 197, 94, 0.1));
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: #4ade80;
+        }
+
+        .streak-badge.loss {
+            background: linear-gradient(135deg, rgba(248, 113, 113, 0.2), rgba(239, 68, 68, 0.1));
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            color: #f87171;
+        }
+
+        .streak-badge.draw {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.1));
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2 .emoji {
+            font-size: 1.75rem;
+        }
+
+        .chart-container {
+            height: 250px;
+            position: relative;
+        }
+
+        .openings-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .opening-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .opening-card:hover {
+            transform: scale(1.02);
+        }
+
+        .opening-card.best {
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .opening-card.worst {
+            border: 1px solid rgba(248, 113, 113, 0.3);
+        }
+
+        .opening-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+        }
+
+        .opening-card h4 {
+            font-size: 0.9rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            height: 2.5em;
+            overflow: hidden;
+        }
+
+        .win-rate {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+
+        .opening-card.best .progress {
+            background: linear-gradient(90deg, #4ade80, #22c55e);
+        }
+
+        .opening-card.worst .progress {
+            background: linear-gradient(90deg, #f87171, #ef4444);
+        }
+
+        .record {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .game-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .result-badge {
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 12px;
+        }
+
+        .result-badge.win {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+        }
+
+        .result-badge.loss {
+            background: rgba(248, 113, 113, 0.2);
+            color: #f87171;
+        }
+
+        .result-badge.draw {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+
+        .game-meta {
+            display: flex;
+            gap: 2rem;
+            color: #888;
+        }
+
+        .game-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .game-meta .color-icon {
+            font-size: 1.5rem;
+        }
+
+        .view-game-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            margin-left: auto;
+            transition: opacity 0.2s;
+        }
+
+        .view-game-btn:hover {
+            opacity: 0.9;
+        }
+
+        .analysis-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .analysis-section h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .analysis-section p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .analysis-section.highlight {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .analysis-section.highlight h4 {
+            color: #a78bfa;
+        }
+
+        .endgame-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .endgame-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .endgame-card h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .endgame-card .big-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .endgame-card.winning .big-number { color: #4ade80; }
+        .endgame-card.losing .big-number { color: #f87171; }
+        .endgame-card.equal .big-number { color: #fbbf24; }
+
+        .endgame-card .detail {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .game-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .view-game-btn {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>&#9823; skilletobviously's Chess Dashboard</h1>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-01 07:17 UTC</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="icon">&#127919;</div>
+                <div class="value">687</div>
+                <div class="label">Current Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">&#11088;</div>
+                <div class="value">710</div>
+                <div class="label">Peak Rating</div>
+            </div>
+            <div class="stat-card win">
+                <div class="icon">&#9989;</div>
+                <div class="value">88</div>
+                <div class="label">Wins</div>
+            </div>
+            <div class="stat-card loss">
+                <div class="icon">&#10060;</div>
+                <div class="value">69</div>
+                <div class="label">Losses</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">&#10134;</div>
+                <div class="value">7</div>
+                <div class="label">Draws</div>
+            </div>
+            <div class="stat-card">
+                <div class="icon">&#128200;</div>
+                <div class="value">54%</div>
+                <div class="label">Win Rate</div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 2 Losses</span>
+            </div>
+        </div>
+
+        <section>
+            <h2><span class="emoji">&#128200;</span> Rating Trend</h2>
+            <div class="chart-container">
+                <canvas id="ratingChart"></canvas>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">&#127942;</span> Best Openings</h2>
+            <div class="openings-container">
+                
+        <div class="opening-card best">
+            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fpppppppp%2F8%2F8%2F4P3%2F8%2FPPPP1PPP%2FRNBQKBNR%20b%20KQkq%20e3%200%201&color=white&theme=brown&piece=cburnett" alt="Kings Pawn Opening Leonardis V">
+            <h4>Kings Pawn Opening Leonardis</h4>
+            <div class="win-rate">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 100.0%"></div>
+                </div>
+                <span>100%</span>
+            </div>
+            <div class="record">3W - 0L - 0D</div>
+        </div>
+        
+        <div class="opening-card best">
+            <img src="https://lichess1.org/export/fen.gif?fen=r1bqkb1r%2Fpppp1ppp%2F2n2n2%2F4p3%2F4P3%2F2N2N2%2FPPPP1PPP%2FR1BQKB1R%20w%20KQkq%20-%204%204&color=white&theme=brown&piece=cburnett" alt="Four Knights Game Italian Vari">
+            <h4>Four Knights Game Italian Va</h4>
+            <div class="win-rate">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75.0%"></div>
+                </div>
+                <span>75%</span>
+            </div>
+            <div class="record">3W - 1L - 0D</div>
+        </div>
+        
+        <div class="opening-card best">
+            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fpppp1ppp%2F8%2F4p3%2F4P3%2F2N5%2FPPPP1PPP%2FR1BQKBNR%20b%20KQkq%20-%201%202&color=white&theme=brown&piece=cburnett" alt="Vienna Game Falkbeer Stanley V">
+            <h4>Vienna Game Falkbeer Stanley</h4>
+            <div class="win-rate">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 66.66666666666666%"></div>
+                </div>
+                <span>67%</span>
+            </div>
+            <div class="record">2W - 1L - 0D</div>
+        </div>
+        
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">&#128218;</span> Openings to Study</h2>
+            <div class="openings-container">
+                
+        <div class="opening-card worst">
+            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fppp1pppp%2F3p4%2F8%2F4P3%2F8%2FPPPP1PPP%2FRNBQKBNR%20w%20KQkq%20-%200%202&color=white&theme=brown&piece=cburnett" alt="Pirc Defense 2.Bc4">
+            <h4>Pirc Defense 2.Bc4</h4>
+            <div class="win-rate">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 25.0%"></div>
+                </div>
+                <span>25%</span>
+            </div>
+            <div class="record">1W - 3L - 0D</div>
+        </div>
+        
+        <div class="opening-card worst">
+            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fpppp1ppp%2F4p3%2F8%2F4P3%2F8%2FPPPP1PPP%2FRNBQKBNR%20w%20KQkq%20-%200%202&color=white&theme=brown&piece=cburnett" alt="French Defense">
+            <h4>French Defense</h4>
+            <div class="win-rate">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 25.0%"></div>
+                </div>
+                <span>25%</span>
+            </div>
+            <div class="record">1W - 3L - 0D</div>
+        </div>
+        
+        <div class="opening-card worst">
+            <img src="https://lichess1.org/export/fen.gif?fen=r1bqkbnr%2Fpppp1ppp%2F2n5%2F4p3%2F4P3%2F2N2N2%2FPPPP1PPP%2FR1BQKB1R%20b%20KQkq%20-%203%203&color=white&theme=brown&piece=cburnett" alt="Three Knights Opening 3...Bc5">
+            <h4>Three Knights Opening 3...Bc</h4>
+            <div class="win-rate">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0.0%"></div>
+                </div>
+                <span>0%</span>
+            </div>
+            <div class="record">0W - 3L - 1D</div>
+        </div>
+        
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
+            <div class="game-header">
+                <div class="result-badge loss">Lost</div>
+                <div class="game-meta">
+                    <span><span class="color-icon">&#9817;</span> Played as White</span>
+                    <span>vs Kcmb11 (702)</span>
+                    <span>Rapid</span>
+                </div>
+                <a href="https://www.chess.com/game/live/164068499472" class="view-game-btn" target="_blank">View Game &#8594;</a>
+            </div>
+
+            <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
+            <div class="analysis-section">
+<h4>Opening Assessment</h4>
+<p>The Bishop's Opening with 2. Bc4 was reasonable, but 3. Qf3 brought the queen out too early without a clear purpose. Black's response 3...f6 was also questionable, weakening the kingside unnecessarily. Both players missed better developing moves in favor of premature attacks.</p>
+</div>
+
+<div class="analysis-section">
+<h4>Critical Moment</h4>
+<p>The game's decisive turning point came around moves 13-15 when White launched an aggressive attack with 11. Qh5+ and 14. Qxf6. While this looked promising and won material (the bishop on g7), it left White's king safety compromised and allowed Black's pieces to coordinate powerfully, especially with 19...Qxf2 hitting multiple targets.</p>
+</div>
+
+<div class="analysis-section">
+<h4>Tactical Opportunities</h4>
+<p>White missed several chances to maintain pressure in the middlegame, particularly around move 25 where better coordination of pieces could have kept the advantage. Black played tactically well with moves like 25...Bxd3 and the subsequent rook exchanges. The knight checks starting from move 42 showed good technique but came too late.</p>
+</div>
+
+<div class="analysis-section">
+<h4>Endgame Notes</h4>
+<p>The endgame featured excellent technique from Black, who correctly activated the king and pushed passed pawns while White's knight could only give checks. White's perpetual check attempts from moves 54-63 were the right try in a losing position. However, Black's time management allowed the position to reach a winning king and pawn endgame.</p>
+</div>
+
+<div class="analysis-section highlight">
+<h4>Key Lesson</h4>
+<p>Don't bring your queen out too early (like 3. Qf3) without a concrete plan - it becomes a target and wastes valuable developing time. Focus on completing development and king safety before launching attacks.</p>
+</div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">&#9812;</span> Endgame Performance</h2>
+            <div class="endgame-grid">
+                <div class="endgame-card winning">
+                    <h4>&#11014;&#65039; Winning Positions</h4>
+                    <div class="big-number">64%</div>
+                    <div class="detail">7 converted / 11 games</div>
+                    <div class="detail">Drew 3 &bull; Lost 1</div>
+                </div>
+                <div class="endgame-card losing">
+                    <h4>&#11015;&#65039; Losing Positions</h4>
+                    <div class="big-number">24%</div>
+                    <div class="detail">5 saved / 21 games</div>
+                    <div class="detail">Wins + Draws from behind</div>
+                </div>
+                <div class="endgame-card equal">
+                    <h4>&#9878;&#65039; Equal Positions</h4>
+                    <div class="big-number">40%</div>
+                    <div class="detail">2 won / 5 games</div>
+                    <div class="detail">Drew 0 &bull; Lost 3</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Powered by <a href="https://www.chess.com/member/skilletobviously" target="_blank">Chess.com</a> API &amp; Claude AI</p>
+        </footer>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('ratingChart').getContext('2d');
+        const ratings = [664, 672, 664, 672, 680, 688, 696, 695, 687, 696, 696, 703, 703, 710, 702, 701, 693, 701, 693, 685, 677, 685, 694, 703, 695, 703, 695, 703, 695, 687];
+        const dates = ["2026-01-26", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-28", "2026-01-28", "2026-01-28", "2026-01-29", "2026-01-29", "2026-01-29", "2026-01-29", "2026-01-30", "2026-01-30", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31"];
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Rating',
+                    data: ratings,
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 6,
+                    pointHoverBackgroundColor: '#667eea',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        displayColors: false,
+                    }
+                },
+                scales: {
+                    x: {
+                        display: false
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.05)'
+                        },
+                        ticks: {
+                            color: '#888'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
