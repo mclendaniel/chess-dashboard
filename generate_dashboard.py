@@ -1055,7 +1055,7 @@ def generate_html(username, stats, games):
     <div id="toast" class="toast"></div>
 
     <script>
-        const API_URL = 'https://chess-dashboard-delta.vercel.app/api/refresh';
+        const API_URL = 'https://chess-dashboard-seven.vercel.app/api/refresh';
 
         function showToast(message, type) {{
             const toast = document.getElementById('toast');
