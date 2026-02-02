@@ -240,14 +240,24 @@ Please provide analysis in this exact HTML format (no markdown, just HTML):
 <p>[Identify THE key turning point with specific moves like "After 15. Nxe5..." - 2-3 sentences]</p>
 </div>
 
-<div class="analysis-section">
-<h4>Tactical Opportunities</h4>
-<p>[Any missed tactics or nice combinations - 2-3 sentences]</p>
+<div class="analysis-section blunder">
+<h4>Notable Blunders</h4>
+<p>[Identify 1-2 clear mistakes the player made with specific move numbers. Explain what was wrong and what would have been better. 2-3 sentences each. If no major blunders, say so briefly.]</p>
+</div>
+
+<div class="analysis-section miss">
+<h4>Notable Misses</h4>
+<p>[Identify 1-2 missed opportunities - tactics, better moves, or winning chances the player overlooked. Include specific move numbers and what they should have played instead. 2-3 sentences each. If none, say so briefly.]</p>
+</div>
+
+<div class="analysis-section good">
+<h4>Notable Good Moves</h4>
+<p>[Highlight 1-2 strong moves the player made - good tactics, positional play, or smart decisions. Include specific move numbers and explain why they were good. 2-3 sentences each. Always find something positive!]</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>[If applicable, how was the endgame handled - 2-3 sentences]</p>
+<p>[If applicable, how was the endgame handled - 2-3 sentences. If game didn't reach endgame, briefly note why.]</p>
 </div>
 
 <div class="analysis-section highlight">
@@ -261,7 +271,7 @@ Be specific about move numbers. Use chess notation when referencing moves."""
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
         message = client.messages.create(
             model="claude-sonnet-4-20250514",
-            max_tokens=1000,
+            max_tokens=1500,
             messages=[{"role": "user", "content": prompt}]
         )
         return message.content[0].text
@@ -744,6 +754,33 @@ def generate_html(username, stats, games):
             color: #a78bfa;
         }}
 
+        .analysis-section.blunder {{
+            background: linear-gradient(135deg, rgba(248, 113, 113, 0.1), rgba(239, 68, 68, 0.05));
+            border: 1px solid rgba(248, 113, 113, 0.3);
+        }}
+
+        .analysis-section.blunder h4 {{
+            color: #f87171;
+        }}
+
+        .analysis-section.miss {{
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.05));
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }}
+
+        .analysis-section.miss h4 {{
+            color: #fbbf24;
+        }}
+
+        .analysis-section.good {{
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(34, 197, 94, 0.05));
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }}
+
+        .analysis-section.good h4 {{
+            color: #4ade80;
+        }}
+
         .endgame-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -934,6 +971,22 @@ def generate_html(username, stats, games):
         </div>
 
         <section>
+            <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
+            <div class="game-header">
+                <div class="result-badge {result_class}">{game_result}</div>
+                <div class="game-meta">
+                    <span><span class="color-icon">{color_icon}</span> Played as {player_color}</span>
+                    <span>vs {opponent['username']} ({opponent['rating']})</span>
+                    <span>{tc_label}</span>
+                </div>
+                <a href="{game_url}" class="view-game-btn" target="_blank">View Game &#8594;</a>
+            </div>
+
+            <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
+            {analysis}
+        </section>
+
+        <section>
             <h2><span class="emoji">&#128200;</span> Rating Trend</h2>
             <div class="chart-container">
                 <canvas id="ratingChart"></canvas>
@@ -952,22 +1005,6 @@ def generate_html(username, stats, games):
             <div class="openings-container">
                 {worst_openings_html}
             </div>
-        </section>
-
-        <section>
-            <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
-            <div class="game-header">
-                <div class="result-badge {result_class}">{game_result}</div>
-                <div class="game-meta">
-                    <span><span class="color-icon">{color_icon}</span> Played as {player_color}</span>
-                    <span>vs {opponent['username']} ({opponent['rating']})</span>
-                    <span>{tc_label}</span>
-                </div>
-                <a href="{game_url}" class="view-game-btn" target="_blank">View Game &#8594;</a>
-            </div>
-
-            <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
-            {analysis}
         </section>
 
         <section>
