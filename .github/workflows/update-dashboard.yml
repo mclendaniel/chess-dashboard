@@ -26,9 +26,14 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Stockfish
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y stockfish
+
       - name: Install dependencies
         run: |
-          pip install requests anthropic
+          pip install requests anthropic chess
 
       - name: Generate dashboard
         env:

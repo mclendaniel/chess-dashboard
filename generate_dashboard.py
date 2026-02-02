@@ -12,6 +12,15 @@ from collections import defaultdict
 import anthropic
 import urllib.parse
 
+# Chess engine analysis
+try:
+    import chess
+    import chess.pgn
+    import chess.engine
+    CHESS_AVAILABLE = True
+except ImportError:
+    CHESS_AVAILABLE = False
+
 USERNAME = "skilletobviously"
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 
@@ -205,6 +214,144 @@ def get_last_game(games, username):
     return sorted_games[0]
 
 
+def analyze_with_stockfish(pgn_text, is_white):
+    """Analyze game with Stockfish to find blunders, misses, and good moves."""
+    if not CHESS_AVAILABLE:
+        return None
+
+    try:
+        # Find Stockfish
+        stockfish_paths = ["/usr/games/stockfish", "/usr/bin/stockfish", "stockfish"]
+        engine = None
+        for path in stockfish_paths:
+            try:
+                engine = chess.engine.SimpleEngine.popen_uci(path)
+                break
+            except:
+                continue
+
+        if not engine:
+            return None
+
+        # Parse PGN
+        import io
+        pgn = chess.pgn.read_game(io.StringIO(pgn_text))
+        if not pgn:
+            engine.quit()
+            return None
+
+        board = pgn.board()
+        moves = list(pgn.mainline_moves())
+
+        blunders = []
+        misses = []
+        good_moves = []
+
+        prev_eval = 0
+        move_number = 0
+
+        for i, move in enumerate(moves):
+            move_number = (i // 2) + 1
+            is_player_move = (i % 2 == 0) == is_white
+
+            if not is_player_move:
+                board.push(move)
+                # Update eval from opponent's perspective
+                try:
+                    info = engine.analyse(board, chess.engine.Limit(depth=15))
+                    score = info["score"].white().score(mate_score=10000)
+                    if score is not None:
+                        prev_eval = score if is_white else -score
+                except:
+                    pass
+                continue
+
+            # Get eval before player's move
+            try:
+                info_before = engine.analyse(board, chess.engine.Limit(depth=15))
+                best_move = info_before.get("pv", [None])[0]
+                eval_before = info_before["score"].white().score(mate_score=10000)
+                if eval_before is not None:
+                    eval_before = eval_before if is_white else -eval_before
+                else:
+                    eval_before = prev_eval
+            except:
+                eval_before = prev_eval
+                best_move = None
+
+            # Make the player's move
+            move_san = board.san(move)
+            board.push(move)
+
+            # Get eval after player's move
+            try:
+                info_after = engine.analyse(board, chess.engine.Limit(depth=15))
+                eval_after = info_after["score"].white().score(mate_score=10000)
+                if eval_after is not None:
+                    eval_after = eval_after if is_white else -eval_after
+                else:
+                    eval_after = eval_before
+            except:
+                eval_after = eval_before
+
+            eval_change = eval_after - eval_before
+
+            # Determine move quality
+            move_notation = f"{move_number}. {move_san}" if is_white else f"{move_number}... {move_san}"
+
+            # Blunder: lost more than 200 centipawns (2 pawns)
+            if eval_change < -200:
+                best_san = board.san(best_move) if best_move and best_move in chess.Board(board.fen()).legal_moves else None
+                blunders.append({
+                    "move": move_notation,
+                    "move_num": move_number,
+                    "eval_change": eval_change / 100,
+                    "best_move": best_san,
+                    "eval_before": eval_before / 100,
+                    "eval_after": eval_after / 100
+                })
+            # Miss: there was a much better move (>150 cp better) but position didn't collapse
+            elif best_move and best_move != move and eval_change < -150 and eval_change >= -200:
+                board_copy = board.copy()
+                board_copy.pop()
+                best_san = board_copy.san(best_move) if best_move in board_copy.legal_moves else None
+                if best_san:
+                    misses.append({
+                        "move": move_notation,
+                        "move_num": move_number,
+                        "better_move": best_san,
+                        "eval_change": eval_change / 100
+                    })
+            # Good move: maintained or improved a good position, or found the best move in a critical moment
+            elif eval_change >= -30 and (eval_before > 100 or eval_change > 50):
+                if best_move == move or eval_change > 30:
+                    good_moves.append({
+                        "move": move_notation,
+                        "move_num": move_number,
+                        "eval_change": eval_change / 100,
+                        "eval_after": eval_after / 100
+                    })
+
+            prev_eval = eval_after
+
+        engine.quit()
+
+        # Sort and limit results
+        blunders.sort(key=lambda x: x["eval_change"])
+        misses.sort(key=lambda x: x["eval_change"])
+        good_moves.sort(key=lambda x: x["eval_change"], reverse=True)
+
+        return {
+            "blunders": blunders[:3],
+            "misses": misses[:3],
+            "good_moves": good_moves[:3]
+        }
+
+    except Exception as e:
+        print(f"Stockfish analysis error: {e}")
+        return None
+
+
 def analyze_game_with_claude(game, username):
     """Use Claude to analyze the most recent game."""
     if not ANTHROPIC_API_KEY:
@@ -218,6 +365,35 @@ def analyze_game_with_claude(game, username):
     result = player["result"]
     color = "White" if is_white else "Black"
 
+    # Run Stockfish analysis
+    stockfish_data = analyze_with_stockfish(pgn, is_white)
+
+    # Format Stockfish findings for Claude
+    engine_analysis = ""
+    if stockfish_data:
+        if stockfish_data["blunders"]:
+            engine_analysis += "\n\nSTOCKFISH-IDENTIFIED BLUNDERS (these are confirmed mistakes - you MUST discuss these):\n"
+            for b in stockfish_data["blunders"]:
+                engine_analysis += f"- {b['move']}: Lost {abs(b['eval_change']):.1f} pawns of advantage."
+                if b.get('best_move'):
+                    engine_analysis += f" Better was {b['best_move']}."
+                engine_analysis += f" (Position went from {b['eval_before']:+.1f} to {b['eval_after']:+.1f})\n"
+
+        if stockfish_data["misses"]:
+            engine_analysis += "\n\nSTOCKFISH-IDENTIFIED MISSED OPPORTUNITIES:\n"
+            for m in stockfish_data["misses"]:
+                engine_analysis += f"- {m['move']}: Missed {m['better_move']} which was {abs(m['eval_change']):.1f} pawns better.\n"
+
+        if stockfish_data["good_moves"]:
+            engine_analysis += "\n\nSTOCKFISH-IDENTIFIED GOOD MOVES:\n"
+            for g in stockfish_data["good_moves"]:
+                engine_analysis += f"- {g['move']}: "
+                if g['eval_change'] > 0:
+                    engine_analysis += f"Gained {g['eval_change']:.1f} pawns. "
+                engine_analysis += f"Position: {g['eval_after']:+.1f}\n"
+    else:
+        engine_analysis = "\n\n(Stockfish analysis unavailable - analyze based on PGN only)\n"
+
     prompt = f"""You are a chess coach analyzing a game for a student. Provide a detailed but accessible analysis.
 
 Player: {username} (playing as {color}, rated {player['rating']})
@@ -227,6 +403,9 @@ Time Control: {game.get('time_control', 'unknown')}
 
 PGN:
 {pgn}
+{engine_analysis}
+
+IMPORTANT: The Stockfish analysis above shows the ACTUAL blunders, misses, and good moves confirmed by computer analysis. You MUST use this data - discuss the specific moves identified, explain WHY they were mistakes/good in human terms, and what the player should learn from them.
 
 Please provide analysis in this exact HTML format (no markdown, just HTML):
 
@@ -237,22 +416,22 @@ Please provide analysis in this exact HTML format (no markdown, just HTML):
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>[Identify THE key turning point with specific moves like "After 15. Nxe5..." - 2-3 sentences]</p>
+<p>[Identify THE key turning point - often the biggest blunder from the Stockfish data. Explain what happened and why it mattered. 2-3 sentences]</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p>[Identify 1-2 clear mistakes the player made with specific move numbers. Explain what was wrong and what would have been better. 2-3 sentences each. If no major blunders, say so briefly.]</p>
+<p>[Discuss the blunders identified by Stockfish. For EACH one: state the move, explain what was wrong with it in simple terms, what would have been better, and why. 2-3 sentences per blunder. If no blunders, say "No major blunders - solid play!"]</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>[Identify 1-2 missed opportunities - tactics, better moves, or winning chances the player overlooked. Include specific move numbers and what they should have played instead. 2-3 sentences each. If none, say so briefly.]</p>
+<p>[Discuss the missed opportunities from Stockfish. For EACH: state what was played, what should have been played instead, and what it would have achieved. 2-3 sentences per miss. If none, say "No significant missed opportunities."]</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>[Highlight 1-2 strong moves the player made - good tactics, positional play, or smart decisions. Include specific move numbers and explain why they were good. 2-3 sentences each. Always find something positive!]</p>
+<p>[Highlight the good moves from Stockfish. For EACH: state the move and explain why it was strong - what did it accomplish tactically or positionally? 2-3 sentences per move. Always be encouraging!]</p>
 </div>
 
 <div class="analysis-section">
@@ -262,7 +441,7 @@ Please provide analysis in this exact HTML format (no markdown, just HTML):
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>[One main takeaway for improvement - make this memorable and actionable]</p>
+<p>[Based on the biggest blunder or miss, what's the ONE thing the player should focus on improving? Make it specific and actionable.]</p>
 </div>
 
 Be specific about move numbers. Use chess notation when referencing moves."""
