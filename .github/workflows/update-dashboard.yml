@@ -44,9 +44,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git fetch origin main
+          git reset --soft origin/main
           git add index.html
           git diff --staged --quiet || git commit -m "Update chess dashboard"
-          git pull --rebase || true
           git push
 
   deploy:
