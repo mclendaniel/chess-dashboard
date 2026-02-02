@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-02 11:24 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-02 14:26 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -490,17 +490,17 @@
             </div>
             <div class="stat-card">
                 <div class="icon">&#11088;</div>
-                <div class="value">710</div>
+                <div class="value">713</div>
                 <div class="label">Peak Rating</div>
             </div>
             <div class="stat-card win">
                 <div class="icon">&#9989;</div>
-                <div class="value">92</div>
+                <div class="value">93</div>
                 <div class="label">Wins</div>
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">71</div>
+                <div class="value">72</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -516,58 +516,62 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge win">
-                <span>&#128293;</span>
-                <span>Current Streak: 1 Win</span>
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 1 Loss</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge win">Won</div>
+                <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
-                    <span><span class="color-icon">&#9817;</span> Played as White</span>
-                    <span>vs teazle5 (710)</span>
+                    <span><span class="color-icon">&#9823;</span> Played as Black</span>
+                    <span>vs Abeer_123456 (713)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/164124342592" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/164137710526" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>You played a solid Vienna Game opening, developing your pieces naturally with Bc4, Nc3, and Nf3. The early castling (move 5) was wise for king safety. Black's setup with ...Bc5 and ...d6 was reasonable, leading to a fairly balanced position in the opening phase.</p>
+<p>The opening started with White's early queen sortie 2.Qh5, which is a common attacking attempt at beginner levels but not particularly strong. Black defended well with 2...d6 and 3...g6, correctly forcing the queen to retreat while developing pieces naturally. The opening phase was roughly equal despite White's aggressive intentions.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was move 27. Ne2, which Stockfish identifies as losing 3.6 pawns of advantage in an already winning position. You had built up a dominant attack and were up the equivalent of over 7 pawns, but this retreat allowed Black to consolidate and extend the game unnecessarily. This move shows the importance of maintaining pressure when you have a winning advantage.</p>
+<p>The critical turning point was 27...Kf8, where Black lost over 20 pawns of advantage according to the engine evaluation. This move walked directly into White's tactical threats and allowed the position to collapse from roughly equal to completely winning for White. After this blunder, Black's king became fatally exposed and White's pieces coordinated perfectly for the final attack.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>27. Ne2:</strong> This was your biggest mistake, losing 3.6 pawns of advantage when you were already winning decisively. Instead of retreating the knight, you should have kept attacking - the knight was well-placed and the retreat gave Black unnecessary breathing room. <strong>22. dxe4:</strong> This recapture lost 2.6 pawns of advantage. While recapturing material is usually correct, in this tactical position there may have been a more forcing continuation that maintained your attacking momentum better.</p>
+<p><strong>35...Ra2:</strong> This move lost nearly 48 pawns of advantage in a position that was already difficult. Instead of creating meaningless checks, Black needed to try to coordinate the remaining pieces or create counterplay elsewhere on the board.</p>
+<p><strong>27...Kf8:</strong> This was the game-losing blunder, allowing White's pieces to dominate completely. The king walked into a mating net when it should have sought safety in a different direction or tried to stay more centralized.</p>
+<p><strong>25...Bd8:</strong> This retreat lost 12 pawns of advantage and blocked the king's escape route. A more active defense or keeping escape squares open for the king would have been preferable.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>20. Qh3:</strong> You missed the powerful 20. Bxh6!, which would have been 1.8 pawns better. This bishop sacrifice would have ripped open Black's kingside and led to a devastating attack - always look for sacrificial opportunities when the opponent's king is exposed. <strong>30. Nf5:</strong> Instead of this move, 30. c3 would have been 1.5 pawns stronger, likely trapping Black's bishop on d4 and consolidating your advantage more effectively.</p>
+<p>No significant missed opportunities were identified by the engine analysis. The position deteriorated primarily due to the blunders mentioned above rather than missed tactical shots or strategic opportunities.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>24. Qxd7:</strong> Excellent decision to capture the rook, gaining 0.4 pawns and maintaining your attack while winning material. <strong>12. Nf5:</strong> A strong attacking move that improved your position by 0.2 pawns, putting pressure on Black's kingside and preparing further tactical possibilities. <strong>15. Bg6:</strong> Good follow-up after the bishop sacrifice, keeping the pressure on Black's weakened kingside structure.</p>
+<p><strong>6...Nd4:</strong> Excellent centralization of the knight, attacking White's queen and creating immediate tactical threats. This move showed good understanding of piece activity and putting pressure on the opponent.</p>
+<p><strong>18...Be7:</strong> A solid defensive move that got the king to relative safety while maintaining piece coordination. This demonstrated good crisis management under pressure.</p>
+<p><strong>17...exf4:</strong> Correctly recapturing the piece and opening lines for potential counterplay. This maintained material balance and kept fighting chances alive.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game didn't reach a true endgame as Black resigned after move 31. Qxf7, when you had achieved a completely winning position with multiple pieces attacking Black's exposed king. Your opponent wisely resigned rather than continue in a hopeless position.</p>
+<p>The game never reached a proper endgame as White's attack proved decisive in the middlegame. The final position shows a beautiful checkmate pattern with the rook on c8 delivering mate while the knight on d6 and bishop on b5 control key escape squares.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>When you have a winning attack, maintain the pressure! Your biggest error (27. Ne2) came from retreating when you should have kept attacking. In winning positions, look for the most forcing moves - checks, captures, and threats - rather than defensive or consolidating moves that give your opponent time to organize a defense.</p>
+<p>Focus on king safety during tactical sequences. When under attack, always look for the safest square for your king rather than just moving away from immediate threats. Practice recognizing when your king is walking into a mating net and develop the habit of checking all possible escape routes before committing to a king move.</p>
 </div>
         </section>
 
@@ -695,8 +699,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [696, 695, 687, 696, 696, 703, 703, 710, 702, 701, 693, 701, 693, 685, 677, 685, 694, 703, 695, 703, 695, 703, 695, 687, 695, 687, 696, 704, 696, 705];
-        const dates = ["2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-28", "2026-01-28", "2026-01-28", "2026-01-29", "2026-01-29", "2026-01-29", "2026-01-29", "2026-01-30", "2026-01-30", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-02-01", "2026-02-01", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02"];
+        const ratings = [687, 696, 696, 703, 703, 710, 702, 701, 693, 701, 693, 685, 677, 685, 694, 703, 695, 703, 695, 703, 695, 687, 695, 687, 696, 704, 696, 705, 713, 705];
+        const dates = ["2026-01-27", "2026-01-27", "2026-01-27", "2026-01-27", "2026-01-28", "2026-01-28", "2026-01-28", "2026-01-29", "2026-01-29", "2026-01-29", "2026-01-29", "2026-01-30", "2026-01-30", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-02-01", "2026-02-01", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02"];
 
         new Chart(ctx, {
             type: 'line',
