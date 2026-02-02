@@ -13,6 +13,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: dashboard-update
+  cancel-in-progress: true
+
 jobs:
   update:
     runs-on: ubuntu-latest
