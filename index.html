@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-05 19:52 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-05 21:04 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -485,7 +485,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">&#127919;</div>
-                <div class="value">697</div>
+                <div class="value">689</div>
                 <div class="label">Current Rating</div>
             </div>
             <div class="stat-card">
@@ -500,7 +500,7 @@
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">79</div>
+                <div class="value">80</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -510,7 +510,7 @@
             </div>
             <div class="stat-card">
                 <div class="icon">&#128200;</div>
-                <div class="value">54%</div>
+                <div class="value">53%</div>
                 <div class="label">Win Rate</div>
             </div>
         </div>
@@ -518,7 +518,7 @@
         <div style="text-align: center;">
             <div class="streak-badge loss">
                 <span>&#10052;</span>
-                <span>Current Streak: 2 Losses</span>
+                <span>Current Streak: 3 Losses</span>
             </div>
         </div>
 
@@ -527,47 +527,49 @@
             <div class="game-header">
                 <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
-                    <span><span class="color-icon">&#9823;</span> Played as Black</span>
-                    <span>vs Lo-Boy-8 (697)</span>
+                    <span><span class="color-icon">&#9817;</span> Played as White</span>
+                    <span>vs 2v47 (691)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/164252438764" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/164287869384" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening developed reasonably well with both players following sound principles - controlling the center with d4/d5 and developing bishops early. Black's 4...Bb4+ created some tactical complications, and the early piece development was generally appropriate for both sides at this level.</p>
+<p>The opening started reasonably with the Bishop's Opening (2. Bc4), but things went off track quickly. The sequence 4. Bb5+ followed by 5. Bd3 wasted valuable time moving the bishop twice, and then 5...dxe4 6. Nxe5 exd3 led to a complex tactical sequence where White fell behind in development and king safety.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The game was completely lost on move 19...Rd7, which allowed the devastating checkmate with 20.Qa8#. This defensive move, while seemingly natural to protect along the back rank, actually opened up the fatal weakness that White exploited immediately. This single move turned a difficult but playable position into an instant loss.</p>
+<p>The critical turning point was 11. d4, which according to Stockfish lost 92.5 pawns of advantage and turned a difficult position into a completely losing one. This move walked directly into Black's tactical trap, allowing 11...Bxd4 which won material and exposed White's king to devastating attacks. After this sequence, White never recovered.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>19...Rd7:</strong> This was the game-ending blunder, allowing immediate checkmate with Qa8#. The rook move failed to address the back rank weakness and gave White the tempo needed for the killing blow. <strong>13...bxc6:</strong> Recapturing with the b-pawn opened dangerous lines for White's queen and created structural weaknesses. A different recapture or defensive move would have kept the position more manageable. <strong>7...Nc6:</strong> This early knight development walked into tactical problems, as the knight became a target and allowed White to gain tempo with moves like Bb5.</p>
+<p><strong>5. Bd3:</strong> This early bishop retreat wasted a tempo and allowed Black to seize the initiative with 5...dxe4, leading to a complex tactical sequence that favored Black. The bishop was better placed staying active or finding a more purposeful square.</p>
+<p><strong>11. d4:</strong> This was a catastrophic blunder that walked directly into Black's tactics. After 11...Bxd4, White was forced into 12. Nxd4, which only made things worse by allowing Black to win the queen exchange.</p>
+<p><strong>12. Nxd4:</strong> While this recapture seemed natural, it completed White's downfall by allowing 12...Qxd4 followed by winning White's queen with 13. Qxg4 Bxg4. White should have looked for ways to avoid this tactical sequence entirely, starting several moves earlier.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>8...Qd7 instead of 8...Nd7:</strong> The queen move was less effective than developing the knight to d7, which would have provided better piece coordination and defensive coverage. The knight on d7 would have supported key central squares and prepared better piece placement. <strong>9...Ng4 instead of 9...a6:</strong> While the knight move created some tactical threats, the simple 9...a6 would have been more solid, addressing White's pressure on the queenside and maintaining better pawn structure.</p>
+<p>No specific missed opportunities were identified by the engine beyond avoiding the major blunders discussed above. The primary issue was falling into Black's tactical traps rather than missing winning chances.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>Black showed good opening understanding with the early central pawn play (1...d5) and bishop development (2...Bf5). The decision to castle queenside (11...O-O-O) was ambitious and showed tactical awareness, even though it ultimately led to complications. The move 14...Bd3 was well-timed, activating the bishop and creating some counterplay despite the difficult position.</p>
+<p>While no specific moves were highlighted as particularly strong by the engine, White showed good instincts with natural developing moves like 3. Nf3 and 10. O-O. The decision to castle kingside was sensible given the tactical complications in the center, even though the position was already difficult.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached an endgame phase, as White delivered checkmate in the middlegame on move 20. The tactical complications and exposed king position prevented the game from transitioning to a quieter endgame phase.</p>
+<p>The game never reached an endgame as White was left in a hopeless material deficit after the tactical sequence around moves 11-13. Black was up significant material (having won White's queen for minor pieces) and had a completely winning position when the game was abandoned.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on king safety and back rank awareness. Before making any move in a tactical position, always check: "Does this move leave my king vulnerable to checks or checkmate threats?" Practice recognizing back rank mate patterns and ensure you have adequate defensive pieces protecting your king's escape squares.</p>
+<p>Before making any move that advances pawns or pieces into the center, always check: "What is my opponent threatening?" The move 11. d4 would have been fine in a quiet position, but here it walked directly into a tactical trap. Spend time looking for your opponent's threats, especially when they have active pieces pointing toward your position.</p>
 </div>
         </section>
 
@@ -695,8 +697,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [685, 694, 703, 695, 703, 695, 703, 695, 687, 695, 687, 696, 704, 696, 705, 713, 705, 713, 705, 698, 706, 714, 706, 698, 706, 713, 705, 713, 705, 697];
-        const dates = ["2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-02-01", "2026-02-01", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-04", "2026-02-04", "2026-02-04", "2026-02-04", "2026-02-05"];
+        const ratings = [694, 703, 695, 703, 695, 703, 695, 687, 695, 687, 696, 704, 696, 705, 713, 705, 713, 705, 698, 706, 714, 706, 698, 706, 713, 705, 713, 705, 697, 689];
+        const dates = ["2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-01-31", "2026-02-01", "2026-02-01", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-04", "2026-02-04", "2026-02-04", "2026-02-04", "2026-02-05", "2026-02-05"];
 
         new Chart(ctx, {
             type: 'line',
