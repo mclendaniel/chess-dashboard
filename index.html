@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-10 08:09 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-10 11:40 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -495,12 +495,12 @@
             </div>
             <div class="stat-card win">
                 <div class="icon">&#9989;</div>
-                <div class="value">102</div>
+                <div class="value">103</div>
                 <div class="label">Wins</div>
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">89</div>
+                <div class="value">90</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -516,58 +516,63 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge loss">
-                <span>&#10052;</span>
-                <span>Current Streak: 2 Losses</span>
+            <div class="streak-badge win">
+                <span>&#128293;</span>
+                <span>Current Streak: 1 Win</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge loss">Lost</div>
+                <div class="result-badge win">Won</div>
                 <div class="game-meta">
-                    <span><span class="color-icon">&#9817;</span> Played as White</span>
-                    <span>vs rageholy (639)</span>
+                    <span><span class="color-icon">&#9823;</span> Played as Black</span>
+                    <span>vs LordBealish00 (641)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/164471220294" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/164488963742" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>You opened with the Bishop's Opening (1.e4 e5 2.Bc4), which is a solid choice. However, the early queen development with 3.Qf3 and the awkward knight maneuver 4.Nh3 gave Black easy equality and even a slight initiative with moves like 5...b5 attacking your bishop.</p>
+<p>This game featured the Italian Game with the aggressive Knight Attack variation (4.Ng5). White played very aggressively with the knight sacrifice 6.Nxf7, which led to wild complications but ultimately backfired. Black handled the tactical chaos reasonably well, though there were some early inaccuracies that could have been punished more severely.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point occurred in the endgame around move 72 with Kb4, which was a devastating blunder that lost nearly 95 pawns of advantage according to the engine. This move allowed Black's rook to dominate completely with checks and forced your king into a losing position. From this point forward, you were essentially in a lost endgame despite having reasonable chances before.</p>
+<p>The critical turning point was move 25...Bxb4, where Black made a massive blunder that threw away a winning position. This move lost an incredible 91.7 pawns of advantage according to the engine, transforming a completely won game into one where White suddenly had real chances. This single move nearly cost Black the entire game after playing well for most of it.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>72.Kb4</strong> was a massive blunder that lost the game - this allowed Black's rook to give devastating checks with 72...Rb6+, forcing your king into worse and worse squares. Instead, you needed to keep your king more centralized to maintain drawing chances. <strong>74.Kc5</strong> compounded the error by walking into another rook check, when you should have tried to activate your king toward Black's pawns. <strong>80.Kc3</strong> was the final nail in the coffin, allowing Black's rook to dominate completely - by this point you needed to try desperate counterplay rather than passive king moves.</p>
+<p><strong>25...Bxb4:</strong> This was the game's biggest mistake, losing over 90 pawns of advantage! Instead of capturing the knight on b4, Black should have maintained the powerful bishop and continued the attack. The bishop was much more valuable in its attacking position than the knight it captured.</p>
+<p><strong>26...Be1:</strong> Following up the previous blunder, this move lost another 2.8 pawns. The bishop retreat didn't accomplish much and allowed White to consolidate further.</p>
+<p><strong>17...Bxf3:</strong> An earlier tactical error that lost 2.1 pawns of advantage. While not as devastating as the later blunder, this exchange helped White's position when Black was already doing well.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>17.Rae1</strong> missed the strong central break 17.e5!, which would have opened lines for your pieces and given you a significant advantage. <strong>18.Qh5+</strong> again missed the powerful 18.e5!, which would have been much stronger than the queen check that just drove Black's king to safety. <strong>33.Ne7</strong> missed 33.Qh7+, which would have maintained more pressure on Black's exposed king position instead of allowing the queen trade.</p>
+<p><strong>Move 4:</strong> Instead of 4...Qe7, the move 4...d5 would have been 1.9 pawns better, immediately challenging White's aggressive setup and gaining central space. This would have put more pressure on White's risky knight sortie.</p>
+<p><strong>Move 5:</strong> Rather than 5...d6, the move 5...h6 was 2.0 pawns stronger, immediately attacking the aggressive knight on g5 and forcing White to make difficult decisions about the piece.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>13.Nxc5</strong> was an excellent tactical shot, winning Black's advanced pawn and gaining a material advantage in the center. <strong>65.e7</strong> showed good technique in the endgame, advancing your passed pawn to the seventh rank and creating maximum pressure. <strong>85.Kf3</strong> was a well-timed king activation that improved your position significantly, though by then the game was already very difficult.</p>
+<p><strong>22...Qg5+:</strong> An excellent move that maintained Black's winning advantage by keeping White's king under pressure. The check forced White into an awkward defensive setup.</p>
+<p><strong>18...Nxa7:</strong> A solid practical choice that maintained Black's advantage while simplifying the position slightly. This move showed good judgment in a complex tactical situation.</p>
+<p><strong>28...Qd1#:</strong> The perfect finish! Black found the checkmate despite the earlier difficulties, showing good tactical vision to end the game decisively.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The endgame was the decisive phase where the game was lost. Your king became too passive and allowed Black's rook to dominate with checks, while Black's passed pawns became unstoppable. In rook endgames, active piece play is crucial - your rook needed to stay active while your king should have been more aggressive in targeting Black's pawns.</p>
+<p>The game never reached a true endgame as Black delivered checkmate in the middlegame. Despite the major blunder on move 25, Black managed to recover and find the winning tactical shot with the queen infiltrating White's back rank for mate.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on rook endgame principles, particularly keeping your rook active and your king centralized. The blunders on moves 72, 74, and 80 all involved passive king play - in rook endgames, you must keep your pieces active and look for counterplay rather than allowing your opponent's pieces to dominate your position with checks.</p>
+<p>The main lesson from this game is to avoid "automatic" captures, especially when you have a winning position. Before playing 25...Bxb4, you should have asked: "Do I really need this knight, or is my bishop more powerful where it is?" Always double-check your moves when you're winning - sometimes the best move is to maintain pressure rather than grab material.</p>
 </div>
         </section>
 
@@ -595,8 +600,8 @@
         </div>
         
         <div class="opening-card best">
-            <img src="https://lichess1.org/export/fen.gif?fen=r1bqkb1r%2Fpppp1ppp%2F2n2n2%2F4p3%2F4P3%2F2N2N2%2FPPPP1PPP%2FR1BQKB1R%20w%20KQkq%20-%204%204&color=white&theme=brown&piece=cburnett" alt="Four Knights Game Italian Vari">
-            <h4>Four Knights Game Italian Va</h4>
+            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fpppp1ppp%2F8%2F4p3%2F2B1P3%2F8%2FPPPP1PPP%2FRNBQK1NR%20b%20KQkq%20-%201%202&color=white&theme=brown&piece=cburnett" alt="Bishops Opening Berlin Defense">
+            <h4>Bishops Opening Berlin Defen</h4>
             <div class="win-rate">
                 <div class="progress-bar">
                     <div class="progress" style="width: 75.0%"></div>
@@ -607,15 +612,15 @@
         </div>
         
         <div class="opening-card best">
-            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fpppp1ppp%2F8%2F4p3%2F2B1P3%2F8%2FPPPP1PPP%2FRNBQK1NR%20b%20KQkq%20-%201%202&color=white&theme=brown&piece=cburnett" alt="Bishops Opening Berlin Defense">
-            <h4>Bishops Opening Berlin Defen</h4>
+            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fpppppppp%2F8%2F8%2F4P3%2F8%2FPPPP1PPP%2FRNBQKBNR%20b%20KQkq%20e3%200%201&color=white&theme=brown&piece=cburnett" alt="Van t Kruijs Opening 1...e5">
+            <h4>Van t Kruijs Opening 1...e5</h4>
             <div class="win-rate">
                 <div class="progress-bar">
-                    <div class="progress" style="width: 75.0%"></div>
+                    <div class="progress" style="width: 66.66666666666666%"></div>
                 </div>
-                <span>75%</span>
+                <span>67%</span>
             </div>
-            <div class="record">3W - 1L - 0D</div>
+            <div class="record">4W - 2L - 0D</div>
         </div>
         
             </div>
@@ -675,8 +680,8 @@
                 </div>
                 <div class="endgame-card losing">
                     <h4>&#11015;&#65039; Losing Positions</h4>
-                    <div class="big-number">20%</div>
-                    <div class="detail">6 saved / 30 games</div>
+                    <div class="big-number">19%</div>
+                    <div class="detail">6 saved / 31 games</div>
                     <div class="detail">Wins + Draws from behind</div>
                 </div>
                 <div class="endgame-card equal">
@@ -695,8 +700,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [713, 705, 713, 705, 698, 706, 714, 706, 698, 706, 713, 705, 713, 705, 697, 689, 681, 673, 664, 672, 680, 688, 688, 680, 672, 664, 656, 657, 649, 641];
-        const dates = ["2026-02-02", "2026-02-02", "2026-02-02", "2026-02-02", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-04", "2026-02-04", "2026-02-04", "2026-02-04", "2026-02-05", "2026-02-05", "2026-02-05", "2026-02-06", "2026-02-06", "2026-02-06", "2026-02-06", "2026-02-07", "2026-02-08", "2026-02-08", "2026-02-08", "2026-02-08", "2026-02-09", "2026-02-09", "2026-02-09", "2026-02-09"];
+        const ratings = [713, 705, 698, 706, 714, 706, 698, 706, 713, 705, 713, 705, 697, 689, 681, 673, 664, 672, 680, 688, 688, 680, 672, 664, 656, 657, 649, 641, 633, 641];
+        const dates = ["2026-02-02", "2026-02-02", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-03", "2026-02-04", "2026-02-04", "2026-02-04", "2026-02-04", "2026-02-05", "2026-02-05", "2026-02-05", "2026-02-06", "2026-02-06", "2026-02-06", "2026-02-06", "2026-02-07", "2026-02-08", "2026-02-08", "2026-02-08", "2026-02-08", "2026-02-09", "2026-02-09", "2026-02-09", "2026-02-09", "2026-02-10", "2026-02-10"];
 
         new Chart(ctx, {
             type: 'line',
