@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-20 19:49 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-20 20:57 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -535,7 +535,42 @@
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
-            <p class='error'>Analysis error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, </p>
+            <div class="analysis-section">
+<h4>Opening Assessment</h4>
+<p>The Vienna Game opening (1.e4 e5 2.Nc3) developed reasonably well for both sides initially. Black's early bishop development with 2...Bc5 was sound, and the tactical sequence around White's f4 push created an interesting middlegame position with chances for both players.</p>
+</div>
+
+<div class="analysis-section">
+<h4>Critical Moment</h4>
+<p>The decisive mistake came on move 11 with 11...Re8, which lost a crushing 88.2 pawns of advantage according to the engine. This move failed to address White's immediate checkmate threat of Bxc7#, allowing White to deliver mate in one. With the black king trapped on d8 and no pieces defending the c7 square, this move sealed Black's fate instantly.</p>
+</div>
+
+<div class="analysis-section blunder">
+<h4>Notable Blunders</h4>
+<p><strong>11...Re8:</strong> This was the game-losing blunder that allowed immediate checkmate. Instead of moving the rook to an inactive square, Black needed to defend against the mate threat on c7 - moves like Na6 or c6 would have blocked the attack and kept the game going.</p>
+<p><strong>8...Qf6:</strong> This queen move lost over 5 pawns of advantage by walking into White's tactical sequence. After 9.exf6, Black was forced to recapture with the knight, but the queen was much better placed staying on d8 or moving to a safer square like Qe7.</p>
+<p><strong>5...Bd6:</strong> Moving the bishop to d6 was inaccurate as it allowed White's strong central advance e5, attacking the bishop and gaining space. A retreat to Bb6 or Be7 would have kept the bishop safer and maintained better piece coordination.</p>
+</div>
+
+<div class="analysis-section miss">
+<h4>Notable Misses</h4>
+<p>No significant missed opportunities were identified by the engine analysis, as Black was primarily defending against White's aggressive play throughout the game.</p>
+</div>
+
+<div class="analysis-section good">
+<h4>Notable Good Moves</h4>
+<p>The engine analysis didn't identify specific good moves for Black in this game, which isn't uncommon when a player faces sustained pressure. However, Black's initial opening development and the decision to capture on f4 with 3...exf4 were reasonable positional choices that kept the game competitive in the early stages.</p>
+</div>
+
+<div class="analysis-section">
+<h4>Endgame Notes</h4>
+<p>The game never reached an endgame, as White delivered checkmate in the middlegame on move 12. The quick finish resulted from Black's failure to recognize and defend against the immediate mate threat.</p>
+</div>
+
+<div class="analysis-section highlight">
+<h4>Key Lesson</h4>
+<p>Focus on developing your "mate radar" - always check if your opponent has any immediate checkmate threats before making your move. When your king is in the center and under pressure, prioritize king safety over piece activity, and look for defensive moves that block attacks on critical squares around your king.</p>
+</div>
         </section>
 
         <section>
