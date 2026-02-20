@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-20 05:07 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-20 08:00 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -485,7 +485,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">&#127919;</div>
-                <div class="value">595</div>
+                <div class="value">603</div>
                 <div class="label">Current Rating</div>
             </div>
             <div class="stat-card">
@@ -495,12 +495,12 @@
             </div>
             <div class="stat-card win">
                 <div class="icon">&#9989;</div>
-                <div class="value">121</div>
+                <div class="value">123</div>
                 <div class="label">Wins</div>
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">114</div>
+                <div class="value">115</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -516,63 +516,26 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge win">
-                <span>&#128293;</span>
-                <span>Current Streak: 2 Wins</span>
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 1 Loss</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge win">Won</div>
+                <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
                     <span><span class="color-icon">&#9823;</span> Played as Black</span>
-                    <span>vs Haidarsx4 (571)</span>
+                    <span>vs MajesticPolar (627)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/164942886014" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/164946954044" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
-            <div class="analysis-section">
-<h4>Opening Assessment</h4>
-<p>The opening followed the Bishop's Opening with 2. Bc4, which is perfectly sound. However, White's early 4. g4 and 5. g5 was overly aggressive and created weaknesses that Black exploited well with 5... Bg4, putting pressure on White's exposed pieces.</p>
-</div>
-
-<div class="analysis-section">
-<h4>Critical Moment</h4>
-<p>The critical turning point came on move 34 with 34... Qa3, which lost a massive 90.9 pawns of advantage according to the engine evaluation. This move allowed White to create serious counterplay when Black had been winning convincingly. This single inaccuracy nearly threw away what should have been an easy victory.</p>
-</div>
-
-<div class="analysis-section blunder">
-<h4>Notable Blunders</h4>
-<p><strong>34... Qa3:</strong> This was the biggest mistake of the game, losing 90.9 pawns of advantage. The queen moved to a less active square when Black was already winning material and should have maintained pressure. A more forcing continuation would have kept the overwhelming advantage intact.</p>
-<p><strong>42... Kc7:</strong> This king move lost 7.9 pawns by walking into a more dangerous position. The king should have moved to a safer square away from White's pieces, as this allowed White to create tactical threats with the knight and queen.</p>
-<p><strong>45... Rf8+:</strong> While this looked like a natural checking move, it actually lost 102.2 pawns by allowing White's king to advance dangerously. A quieter move would have maintained Black's winning position without giving White counterplay chances.</p>
-</div>
-
-<div class="analysis-section miss">
-<h4>Notable Misses</h4>
-<p><strong>19... Qf7 instead of Qd7:</strong> The queen move to f7 was passive when Qd7 would have been 1.8 pawns better, likely centralizing the queen more effectively and coordinating better with Black's pieces.</p>
-<p><strong>26... Bg4 instead of Bg6:</strong> While Bg4 looked natural, Bg6 would have been 1.7 pawns stronger, probably keeping the bishop in a more flexible position while maintaining pressure on White's kingside.</p>
-<p><strong>40... Rh8+ instead of Qd6:</strong> The checking move looked forcing, but Qd6 would have been 1.8 pawns better, likely centralizing the queen and creating more concrete threats.</p>
-</div>
-
-<div class="analysis-section good">
-<h4>Notable Good Moves</h4>
-<p><strong>47... Bf6#:</strong> Excellent finish! This checkmate move was the perfect culmination of your attack, coordinating the bishop and rook to deliver mate. The bishop move cut off the white king's escape squares while the rook on f2 controlled the crucial files - a textbook mating pattern!</p>
-</div>
-
-<div class="analysis-section">
-<h4>Endgame Notes</h4>
-<p>The game transitioned into a complex middlegame with multiple pieces rather than a pure endgame. Despite some inaccuracies that nearly allowed White back into the game, you managed to coordinate your pieces effectively in the final position to deliver checkmate with the bishop and rook working together.</p>
-</div>
-
-<div class="analysis-section highlight">
-<h4>Key Lesson</h4>
-<p>When you're winning by a large margin, focus on simple, safe moves that maintain your advantage rather than looking for complicated tactics. The blunder on move 34 (Qa3) nearly threw away a winning position - in such situations, ask yourself "What's the simplest way to keep my advantage?" rather than seeking the most forcing moves.</p>
-</div>
+            <p class='error'>Analysis error: Error code: 529 - {'type': 'error', 'error': {'type': 'overloaded_error', 'message': 'Overloaded'}, </p>
         </section>
 
         <section>
@@ -699,8 +662,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [633, 625, 625, 617, 609, 609, 617, 625, 618, 626, 618, 610, 618, 610, 602, 594, 586, 594, 586, 578, 570, 578, 571, 579, 587, 595, 587, 579, 587, 595];
-        const dates = ["2026-02-14", "2026-02-14", "2026-02-14", "2026-02-14", "2026-02-14", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-16", "2026-02-16", "2026-02-16", "2026-02-16", "2026-02-17", "2026-02-17", "2026-02-17", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-19", "2026-02-19", "2026-02-20"];
+        const ratings = [617, 609, 609, 617, 625, 618, 626, 618, 610, 618, 610, 602, 594, 586, 594, 586, 578, 570, 578, 571, 579, 587, 595, 587, 579, 587, 595, 603, 611, 603];
+        const dates = ["2026-02-14", "2026-02-14", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-15", "2026-02-16", "2026-02-16", "2026-02-16", "2026-02-16", "2026-02-17", "2026-02-17", "2026-02-17", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-19", "2026-02-19", "2026-02-20", "2026-02-20", "2026-02-20", "2026-02-20"];
 
         new Chart(ctx, {
             type: 'line',
