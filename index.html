@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-26 20:59 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-26 22:00 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -485,7 +485,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">&#127919;</div>
-                <div class="value">578</div>
+                <div class="value">586</div>
                 <div class="label">Current Rating</div>
             </div>
             <div class="stat-card">
@@ -495,7 +495,7 @@
             </div>
             <div class="stat-card win">
                 <div class="icon">&#9989;</div>
-                <div class="value">130</div>
+                <div class="value">131</div>
                 <div class="label">Wins</div>
             </div>
             <div class="stat-card loss">
@@ -516,58 +516,61 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge loss">
-                <span>&#10052;</span>
-                <span>Current Streak: 2 Losses</span>
+            <div class="streak-badge win">
+                <span>&#128293;</span>
+                <span>Current Streak: 1 Win</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge loss">Lost</div>
+                <div class="result-badge win">Won</div>
                 <div class="game-meta">
                     <span><span class="color-icon">&#9817;</span> Played as White</span>
-                    <span>vs Akmallaskar (600)</span>
+                    <span>vs Husainst1 (584)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/165224526388" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/165255338984" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening started with the Bishop's Opening (2. Bc4), which is a solid choice. The early queen sortie with 3. Qf3 and 4. Qh5 was overly aggressive and allowed Black to develop naturally while your queen became a target. This type of premature attack is common at the beginner level but generally doesn't yield lasting advantages against proper defense.</p>
+<p>The Bishop's Opening with 2. Bc4 was reasonable, developing a piece toward the kingside. However, the early queen sortie with 3. Qf3 was premature and put the queen in a vulnerable position where it would need to move repeatedly. This violated the opening principle of developing pieces before bringing the queen out too early.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 36. b3, which allowed the immediate checkmate with 36...Rxf1#. This move blocked your own escape squares and left your king completely defenseless on the back rank. What seemed like a simple pawn push to attack Black's bishop actually sealed your fate by removing the king's only flight square on b2.</p>
+<p>The critical turning point was 7. Qg3, which lost a massive 3.4 pawns of advantage according to Stockfish analysis. This move placed the queen on an exposed square where it became a target rather than a useful attacking piece. From this point forward, White was fighting from a significantly disadvantaged position until the opponent's final mistake allowed the checkmate.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p>36. b3 was the game-ending blunder, allowing immediate mate in one. Instead of pushing the b-pawn, you needed to give your king an escape square with moves like g3 or address the back rank weakness. 34. Ne3 was another major error that walked into Black's tactical setup - the knight move allowed Black's pieces to coordinate for the final attack when a move like Rd1+ would have kept you in the game. 29. Re1 also backfired badly by placing your rook on a square where it could be captured with check (29...Rxe1+), when you should have focused on consolidating your material advantage with moves like Bb4 or Ra8+.</p>
+<p><strong>7. Qg3:</strong> This was the game's biggest blunder, losing 3.4 pawns of advantage. The queen became exposed and poorly placed on g3, where it served no constructive purpose and became vulnerable to attack. A better approach would have been to focus on piece development or central control rather than aimless queen moves.</p>
+<p><strong>12. Qe4:</strong> This move lost another 2.6 pawns of advantage when the position was already difficult. While the queen aimed at the kingside, it was still misplaced and didn't create genuine threats. Better would have been defensive moves to consolidate the position or develop remaining pieces.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>The Stockfish analysis didn't identify any specific missed opportunities beyond the blunders mentioned above. Your main issues were making moves that actively worsened your position rather than missing great opportunities to improve it.</p>
+<p><strong>11. Qe3 instead of Ne2:</strong> The missed Ne2 would have been 1.8 pawns better, likely improving piece coordination and potentially supporting the center or preparing defensive resources.</p>
+<p><strong>8. Bd3 instead of h3:</strong> The computer preferred h3, which would have been 1.6 pawns better, possibly preventing Black's pieces from occupying key dark squares or preparing a kingside initiative.</p>
+<p><strong>9. Nd5 instead of f3:</strong> Missing f3 cost 1.6 pawns of advantage, as f3 would have likely improved the pawn structure and piece coordination rather than the knight maneuver that followed.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>8. Bb3 was well-played, removing your bishop from attack while maintaining pressure on f7 and keeping the piece active. 14. exd5 correctly opened the center and maintained your space advantage when Black offered the pawn trade. 10. Qxe8 was the right decision, trading queens when you had a lead in development and removing Black's most powerful piece from the board.</p>
+<p><strong>13. Qh7#:</strong> Excellent finish! Despite being in a losing position, you stayed alert and spotted the checkmate opportunity when your opponent left their king vulnerable. This shows good tactical awareness and the importance of never giving up even when behind. The ability to find mate-in-one under pressure is a valuable skill that won you the game.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached a true endgame, ending in a tactical middlegame sequence. You had good winning chances with your material advantage, but tactical oversights allowed Black to create threats that culminated in back rank mate.</p>
+<p>The game never reached an endgame, as it concluded in the middlegame with a sudden checkmate. This demonstrates how quickly positions can change in chess, especially when kings remain vulnerable and players must stay vigilant for tactical opportunities.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Always check for back rank mate threats before making moves that limit your king's mobility. Before playing 36. b3, you should have asked yourself: "Does this move block my king's escape squares?" The key skill to develop is king safety awareness - always ensure your king has flight squares, especially when enemy pieces are active near your back rank.</p>
+<p>Focus on keeping your queen safe and purposeful in the opening and early middlegame. Avoid moving the queen multiple times without a clear plan, as this wastes tempo and often puts the queen in danger. Instead, develop your minor pieces first, castle for king safety, and only bring the queen out when it has a specific, strong purpose.</p>
 </div>
         </section>
 
@@ -695,8 +698,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [570, 578, 571, 579, 587, 595, 587, 579, 587, 595, 603, 611, 603, 595, 603, 595, 603, 611, 602, 610, 618, 610, 618, 610, 602, 594, 586, 594, 586, 578];
-        const dates = ["2026-02-17", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-19", "2026-02-19", "2026-02-20", "2026-02-20", "2026-02-20", "2026-02-20", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-24", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-26", "2026-02-26"];
+        const ratings = [578, 571, 579, 587, 595, 587, 579, 587, 595, 603, 611, 603, 595, 603, 595, 603, 611, 602, 610, 618, 610, 618, 610, 602, 594, 586, 594, 586, 578, 586];
+        const dates = ["2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-18", "2026-02-19", "2026-02-19", "2026-02-20", "2026-02-20", "2026-02-20", "2026-02-20", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-24", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26"];
 
         new Chart(ctx, {
             type: 'line',
