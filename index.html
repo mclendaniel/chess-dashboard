@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-26 14:39 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-02-26 18:05 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,37 +537,45 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening started reasonably with the Bishop's Opening (1.e4 e5 2.Bc4), but White's early queen sortie with 3.Qf3 and 4.Qh5 was overly aggressive and risky. While these moves created some early threats, they allowed Black to develop with tempo and eventually win material by capturing the knight on b3 after White's bishop retreated.</p>
+<p>The Bishop's Opening with 2.Bc4 was reasonable, but the early queen sortie with 3.Qf3 and 4.Qh5 was premature and created tactical vulnerabilities. Black's unusual response 3...Nh6 allowed White to win material with 6.Bxh6, but the exposed queen position made development awkward and led to an early queen trade that favored Black.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 36.b3, a devastating blunder that lost nearly 96 pawns of advantage according to the engine. This move blocked White's own bishop's escape route and allowed Black's rook to deliver checkmate with 36...Rxf1#. What seemed like a simple pawn move actually sealed White's fate by creating a fatal weakness on the back rank.</p>
+<p>The critical turning point was 29.Re1, where White had a winning position but blundered away a massive 5.8 pawn advantage. This move allowed Black's rook to penetrate decisively with 29...Rxe1+, completely reversing the evaluation from winning for White to losing. After this mistake, Black seized control and never let go.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p>36.b3 was the game-ending blunder, blocking the bishop's retreat and allowing immediate checkmate. White needed to focus on king safety and giving pieces escape squares rather than pushing pawns. 34.Ne3 was another major error, moving the knight to a square where it could be attacked while allowing Black's pieces to coordinate for the final attack. Earlier, 29.Re1 was problematic as it placed the rook on a file where it could be immediately exchanged off, reducing White's defensive resources when they were most needed.</p>
+<p><strong>36.b3:</strong> This was the final fatal mistake that allowed immediate checkmate with 36...Rxf1#. Instead of defending the back rank or creating escape squares for the king, this pawn move did nothing to address the mating threat. The king needed an escape square on h2 or the back rank needed protection.</p>
+
+<p><strong>34.Ne3:</strong> This knight move lost 6.3 pawns of advantage by allowing Black's rook to become extremely active with 34...Ra1+. The knight should have stayed closer to defend the back rank or found a more active square that didn't allow Black's tactical shot.</p>
+
+<p><strong>29.Re1:</strong> Perhaps the most costly blunder, losing 5.8 pawns when White was completely winning. This rook move walked right into Black's tactical sequence starting with 29...Rxe1+, when White should have consolidated the advantage with a quieter move that maintained control.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>No specific missed opportunities were highlighted by the engine analysis, though White generally struggled to find the most accurate defensive moves in the complex middlegame. The focus should be on the major blunders that directly led to the loss rather than missed winning chances.</p>
+<p>No significant missed opportunities beyond the major blunders already identified. White's main issue was not missing winning moves, but rather playing moves that threw away existing advantages through tactical oversights.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>8.Bb3 was a good retreat, keeping the bishop active while avoiding immediate tactics. 14.exd5 correctly opened the center and maintained White's space advantage. 10.Qxe8 simplified the position favorably, trading queens when White had gained some material and reducing Black's attacking chances at that moment.</p>
+<p><strong>8.Bb3:</strong> Excellent timing to retreat the bishop while it was still safe, maintaining pressure on f7 and keeping the bishop active. This move showed good tactical awareness by avoiding the knight fork and maintaining piece coordination.</p>
+
+<p><strong>14.exd5:</strong> Perfect central pawn capture that opened lines and maintained White's space advantage. This move demonstrated good understanding of pawn structure and central control.</p>
+
+<p><strong>10.Qxe8:</strong> Smart decision to trade queens when ahead in material, simplifying into a favorable endgame. This showed good strategic judgment about when to trade pieces.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached a proper endgame, as White was checkmated in the middlegame. The final position shows the importance of back-rank safety - White's king had no escape squares when the rook delivered mate on f1.</p>
+<p>The game never reached a proper endgame as White's king safety issues led to a forced checkmate in the middlegame. The combination of an exposed king on the back rank and active enemy pieces created the mating net that decided the game.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Always check for back-rank mate threats before making moves that limit your pieces' mobility. The move b3 not only blocked the bishop's retreat but also failed to address the immediate mating threat. Practice recognizing back-rank patterns and always ensure your king has an escape square or adequate defenders.</p>
+<p>Focus on king safety and back rank awareness, especially in simplified positions. Before making any move, always check: "Is my king safe from back rank mates or tactics?" This habit would have prevented both the 29.Re1 blunder and the final 36.b3 that allowed checkmate.</p>
 </div>
         </section>
 
