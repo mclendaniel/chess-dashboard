@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-02 17:35 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-02 18:29 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,40 +537,43 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The Bishop's Opening with 2.Bc4 was reasonable, but 3.Qf3 developed the queen too early without clear purpose. This allowed Black to gain comfortable development and eventually seize the initiative with active piece play.</p>
+<p>You opened with the Bishop's Opening (2. Bc4) followed by the aggressive 3. Qf3, which puts early pressure on Black's position. While this creates immediate threats, bringing the queen out so early can make it a target for Black's pieces. Your development was reasonable, though Black was able to neutralize your initial attacking chances.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 22.Ng4, which threw away a completely winning position worth over 9 pawns of advantage. After capturing the bishop and pawn with your knight sacrifice on h6, you had Black's king exposed and should have been converting to victory, but this retreat allowed Black to consolidate and turn the tables.</p>
+<p>The game's turning point came on move 22 with Ng4, which Stockfish identifies as a massive blunder costing 94.4 pawns of advantage. At this point you had a completely winning position (+100.0), likely with forced checkmate, but this move allowed Black to escape and turn the tables. This single move transformed a won game into a difficult position.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>22.Ng4:</strong> This was a catastrophic blunder that lost 94.4 pawns of advantage from a completely winning position. Instead of retreating the knight passively, you needed to maintain the attack against Black's exposed king. The knight should have stayed active to exploit Black's vulnerability.</p>
-<p><strong>36.Kb3:</strong> Moving into a discovered check pattern cost you nearly 28 pawns of advantage. In king and pawn endgames, every tempo matters, and walking into tactical shots like this can be fatal.</p>
-<p><strong>30.Kb3:</strong> Another king move that allowed Black's pieces to coordinate with devastating effect, losing over 6 pawns of advantage. The king was too exposed to Black's active pieces and knight forks.</p>
+<p><strong>22. Ng4:</strong> This was the catastrophic blunder that lost the game. With your knight on h6 and Black's king trapped, you likely had forced checkmate available, but retreating the knight to g4 allowed Black's counterplay with 22...Nxf2. You should look for forcing moves like checks and captures when you have such a dominant position.</p>
+
+<p><strong>36. Kb3:</strong> In the endgame, this king move worsened your already difficult position by walking into another knight fork. When facing multiple enemy pieces, try to keep your king safe and avoid squares where it can be attacked by knights.</p>
+
+<p><strong>30. Kb3:</strong> Another king move that made things worse, again allowing the knight fork Nd4+. In positions with active enemy knights, calculate where they can jump to before moving your king.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>Move 6:</strong> You played 6.Nb5, but 6.Nf3 would have been 2 pawns better according to the analysis. Nf3 would have developed naturally while maintaining pressure on Black's central knight on d4, keeping your pieces better coordinated for the middlegame struggle.</p>
+<p><strong>6. Nb5:</strong> You missed 6. Nf3, which would have been 2.0 pawns better according to Stockfish. While Nb5 attacks the knight on d4, Nf3 would have developed more naturally while maintaining central control. The key principle here is to develop knights toward the center when possible, as they're more active there.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>19.Bxg4:</strong> Excellent tactical awareness! This capture removed Black's active bishop and maintained your strong attacking position.</p>
-<p><strong>15.Nf7+ and 21.Nxh6+:</strong> These forcing moves showed good tactical vision, keeping Black's king under constant pressure and maintaining your initiative. Your knight sacrifice on h6 was particularly strong, exposing Black's king position completely.</p>
+<p><strong>19. Bxg4:</strong> Excellent tactical awareness! You correctly captured Black's bishop, removing a key defender and maintaining your attacking chances. This move showed good calculation of the tactical sequence.</p>
+
+<p><strong>15. Nf7+ and 21. Nxh6+:</strong> Both of these forcing moves were spot-on, keeping Black's king under constant pressure and maintaining your initiative. Your ability to find these checks shows good tactical vision when you're in attack mode.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached a proper endgame as it was abandoned while still in the middlegame. However, your king was dangerously exposed to Black's coordinated pieces, and the material deficit from earlier blunders would have made the position very difficult to hold.</p>
+<p>The game never reached a proper endgame as it was abandoned while still in the middlegame. However, the final position shows Black with multiple pieces coordinating well against your exposed king, demonstrating how quickly a winning position can deteriorate after a major blunder.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>When you have a winning attack, don't retreat your pieces without a clear plan - maintain the pressure! After 21.Nxh6+, you had Black's king completely exposed, but 22.Ng4 allowed Black to consolidate. Practice recognizing when to keep attacking versus when to consolidate material advantage.</p>
+<p>When you have a completely winning position (especially when the computer shows +100.0), slow down and look for the most forcing moves first - checks, captures, and threats. In your winning position around move 22, you should have calculated all possible checks and forcing moves before making any other move. Practice recognizing when you have a "must-win" position and take extra time to find the knockout blow.</p>
 </div>
         </section>
 
