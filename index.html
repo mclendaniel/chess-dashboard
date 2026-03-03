@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-03 06:34 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-03 07:33 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -485,7 +485,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">&#127919;</div>
-                <div class="value">591</div>
+                <div class="value">583</div>
                 <div class="label">Current Rating</div>
             </div>
             <div class="stat-card">
@@ -500,7 +500,7 @@
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">131</div>
+                <div class="value">132</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -516,58 +516,60 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge win">
-                <span>&#128293;</span>
-                <span>Current Streak: 3 Wins</span>
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 1 Loss</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge win">Won</div>
+                <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
-                    <span><span class="color-icon">&#9817;</span> Played as White</span>
-                    <span>vs KdHr123 (556)</span>
+                    <span><span class="color-icon">&#9823;</span> Played as Black</span>
+                    <span>vs El-GENGISKAN (602)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/165441590130" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/165441598966" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>White played a solid opening with 1.e4 and 2.Bc4, developing pieces and controlling the center. Black's moves 1...h5, 2...a5, and 3...b6 were highly unusual and weakened key squares around the king without developing any pieces or controlling the center.</p>
+<p>The opening developed along English Opening lines with both sides developing pieces naturally. Black handled the early phase reasonably well, though there was a small inaccuracy on move 6 that could have been improved upon.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical moment was Black's entire opening sequence, particularly the failure to develop pieces or defend the kingside. By playing only pawn moves on the flanks (h5, a5, b6), Black left the f7 square completely undefended and allowed White to coordinate a quick attack with Bc4 and Qf3. This created the conditions for an immediate checkmate in just four moves.</p>
+<p>The critical moment came on move 16 with Ke6, which walked directly into checkmate. This move lost a massive 86.4 pawns of advantage according to the engine, transforming a difficult but playable position into an immediate loss. After White's Qg7+ check, the king needed to find a safer square that wouldn't allow the devastating knight fork on g5.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p>While Stockfish didn't specifically flag individual moves as blunders, Black's entire opening approach was fundamentally flawed. The moves 1...h5, 2...a5, and 3...b6 all violated basic opening principles by moving only pawns instead of developing pieces. These moves left Black's king exposed and allowed White's pieces to coordinate for a quick attack on the weakened f7 square.</p>
+<p><strong>16...Ke6:</strong> This was the game-ending blunder, walking directly into Ng5 checkmate. The king should have retreated to Ke8 or found another escape square that didn't place it on the fatal e6 square where White's knight could deliver mate.</p>
+<p><strong>13...Ke7:</strong> While not immediately losing, this king move centralized the king dangerously and made it a target for White's coordinated attack. Keeping the king safer on the back rank would have offered better defensive chances.</p>
+<p><strong>14...Rf6:</strong> This rook move, while attempting to block checks, actually made the position worse by placing the rook on an exposed square. The rook became part of the mating net rather than helping the king escape.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>No significant missed opportunities were identified by Stockfish, as the game ended very quickly. Black should have played normal developing moves like 1...e5, 1...c5, or 1...Nf6 to contest the center and begin piece development.</p>
+<p><strong>6...Bb4 instead of 6...exd4:</strong> You played the retreat Bb4, but capturing the pawn with exd4 would have been significantly stronger, gaining about 1.8 pawns of advantage. Taking the central pawn would have opened lines for your pieces and challenged White's pawn center more directly.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>4.Qxf7# was identified as an excellent move by Stockfish, delivering immediate checkmate. This move capitalized perfectly on Black's weakened king position and the coordination between White's bishop on c4 and queen. White demonstrated good tactical awareness by recognizing that f7 was completely undefended and could be attacked with checkmate.</p>
+<p><strong>7...Ng4:</strong> This was an excellent tactical shot that improved your position significantly! The knight attack on White's queen forced it to move and gave you active piece play. This move showed good tactical awareness and created immediate threats that your opponent had to address.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached an endgame, ending in checkmate after just four moves. This demonstrates the importance of sound opening principles, as poor opening play can lead to immediate tactical disasters.</p>
+<p>The game never reached an endgame phase, ending in a middlegame checkmate. The position remained tactical throughout, with both sides' pieces actively engaged in the center of the board.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>The main lesson here is about opening fundamentals: always develop your pieces before moving pawns unnecessarily, especially on the flanks. Focus on controlling the center with moves like e5, d6, Nf6, or Bc5 in the opening, and avoid weakening moves like h5 or a5 that don't contribute to development or king safety.</p>
+<p>Focus on king safety, especially when under attack. When your king is being checked repeatedly, always look for the safest squares rather than the most active ones. Practice recognizing mating patterns - in this case, a knight and queen working together can create deadly combinations when the enemy king is exposed.</p>
 </div>
         </section>
 
@@ -695,8 +697,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [603, 595, 603, 611, 602, 610, 618, 610, 618, 610, 602, 594, 586, 594, 586, 578, 586, 578, 570, 577, 569, 577, 569, 576, 584, 576, 568, 576, 583, 591];
-        const dates = ["2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-24", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-27", "2026-02-27", "2026-02-27", "2026-02-27", "2026-02-28", "2026-02-28", "2026-02-28", "2026-03-02", "2026-03-02", "2026-03-03", "2026-03-03", "2026-03-03"];
+        const ratings = [595, 603, 611, 602, 610, 618, 610, 618, 610, 602, 594, 586, 594, 586, 578, 586, 578, 570, 577, 569, 577, 569, 576, 584, 576, 568, 576, 583, 591, 583];
+        const dates = ["2026-02-22", "2026-02-22", "2026-02-22", "2026-02-22", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-24", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-27", "2026-02-27", "2026-02-27", "2026-02-27", "2026-02-28", "2026-02-28", "2026-02-28", "2026-03-02", "2026-03-02", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-03"];
 
         new Chart(ctx, {
             type: 'line',
