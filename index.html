@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-04 12:27 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-04 13:46 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,37 +537,41 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening followed the English Opening Four Knights variation reasonably well through the first several moves. Both sides developed pieces naturally, though Black's 4...Bc5 and later 6...Bb4 showed some indecision with the bishop placement. The position remained roughly balanced until tactical complications began around move 7.</p>
+<p>The opening developed into an English Opening Four Knights variation, which was handled reasonably well by both sides. Black's setup with ...Bc5 and later ...Bb4 was logical, putting pressure on White's center and preparing to challenge the knight on c3.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 16...Ke6, which walked directly into checkmate in one move. This blunder cost a massive 86.4 pawns of advantage according to the engine, transforming a difficult but playable position into an immediate loss. After White's forcing sequence of checks, finding a safe square for the king became paramount, but Ke6 failed to recognize the mating net.</p>
+<p>The critical turning point was 16...Ke6, which walked directly into checkmate. After White's forcing sequence of checks starting with 13.Qg8+, Black needed to be extremely careful about king placement. Instead of moving to e6, the king should have sought safety elsewhere, but this move allowed the devastating 17.Ng5# checkmate.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>16...Ke6:</strong> This move walked straight into mate with 17.Ng5#. The king needed to find a safer square - Ke8 would have avoided immediate mate and kept the game going. <strong>14...Rf6:</strong> While defending against immediate threats, this rook move allowed White to continue the devastating attack with 15.Nd5+, putting even more pressure on the exposed king. A move like Ke8 would have been more solid. <strong>13...Ke7:</strong> After the check on g8, moving to e7 exposed the king to further attacks - Rf7 might have been a better defensive try, keeping the king safer on the back rank.</p>
+<p><strong>16...Ke6</strong> was the final and most costly blunder, losing 86.4 pawns of advantage by walking into immediate checkmate. The king moved to a square where it could be mated by Ng5#, with no escape squares available. Any other king move would have prolonged the game significantly.</p>
+
+<p><strong>13...Ke7</strong> lost 8.5 pawns by moving to a square that allowed White's devastating attack to continue with maximum force. The king should have sought better shelter, possibly staying on the back rank or finding a less exposed square where White's pieces couldn't coordinate so effectively.</p>
+
+<p><strong>14...Rf6</strong> lost 6.2 pawns by blocking the f-file but failing to adequately defend the exposed king. While the rook tried to help with defense, it wasn't sufficient against White's coordinated attack, and a different defensive setup was needed.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>6...Bb4 instead of 6...exd4:</strong> When White played d4, Black had the opportunity to capture with exd4, opening the center and gaining material advantage. Instead, 6...Bb4 was passive and allowed White to maintain central control. Taking on d4 would have been worth about 1.8 pawns of advantage and given Black a more active position.</p>
+<p><strong>6...Bb4</strong> was played, but Black missed the stronger 6...exd4, which would have been 1.8 pawns better. Taking the pawn would have opened the center favorably for Black and eliminated White's central pawn tension. This would have given Black a more active position and better piece coordination in the resulting position.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>7...Ng4:</strong> This was an excellent tactical shot that attacked White's queen and forced it to move while gaining tempo. The knight move created immediate threats and improved Black's position significantly, showing good tactical awareness. This kind of aggressive piece play is exactly what you want to look for when your opponent's pieces are somewhat exposed.</p>
+<p><strong>7...Ng4</strong> was an excellent tactical shot that improved Black's position significantly! This move attacked White's queen while bringing the knight to an active square, forcing White's pieces to react. The knight fork created immediate tactical threats and showed good fighting spirit in a complex position.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached an endgame as it concluded in the middlegame with a forced checkmate. The tactical complications that began around move 7-8 led to a sharp attacking game where White successfully coordinated pieces for a mating attack.</p>
+<p>The game never reached an endgame, as White delivered checkmate in the middlegame on move 17. The position remained highly tactical throughout, with both sides' pieces actively engaged in attack and defense until the final mating sequence.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>When your king is under attack and being checked repeatedly, always look for the safest possible square - not just any legal move. In positions like after 16.Qg7+, take extra time to visualize what your opponent's pieces can do from their current positions, especially knights which can deliver unexpected checkmates. Practice recognizing basic mating patterns so you can spot them both as opportunities and threats.</p>
+<p>Focus on king safety during tactical sequences, especially when facing checks. When your opponent starts a series of forcing moves like checks, take extra time to calculate where your king will be safe rather than moving quickly. Practice recognizing mating patterns so you can avoid walking into checkmate traps like the final Ng5# in this game.</p>
 </div>
         </section>
 
