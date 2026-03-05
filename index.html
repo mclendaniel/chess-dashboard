@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-05 22:18 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-05 23:43 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -505,7 +505,7 @@
             </div>
             <div class="stat-card">
                 <div class="icon">&#10134;</div>
-                <div class="value">12</div>
+                <div class="value">13</div>
                 <div class="label">Draws</div>
             </div>
             <div class="stat-card">
@@ -516,60 +516,64 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge win">
-                <span>&#128293;</span>
-                <span>Current Streak: 3 Wins</span>
+            <div class="streak-badge draw">
+                <span>&#10134;</span>
+                <span>Current Streak: 1 Draw</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge win">Won</div>
+                <div class="result-badge draw">Drew</div>
                 <div class="game-meta">
-                    <span><span class="color-icon">&#9817;</span> Played as White</span>
-                    <span>vs peiH_05 (584)</span>
+                    <span><span class="color-icon">&#9823;</span> Played as Black</span>
+                    <span>vs ritik1302 (610)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/165531632204" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/165561559328" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>You played a solid French Defense opening, reaching a reasonable position after the early moves. The development was natural with Nf3, Nc3, and the typical pawn structure with e5 advance. Black's early ...f5 advance weakened their kingside, which you later exploited effectively in the attack.</p>
+<p>The opening followed the Queen's Pawn Opening with 1.d4 d5 2.Bf4, a solid system opening. Both players developed reasonably well in the first few moves, though Black's early ...Nc6 and ...g6 setup was somewhat unorthodox. The position remained balanced through the early middle game.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 17. Bh4, where you threw away a massive 4.4 pawns of advantage, dropping your evaluation from winning (+5.3) to roughly equal (+0.9). This single move nearly let your opponent back into a game where you had built up a commanding position. However, Black's subsequent mistakes allowed you to recover and eventually deliver checkmate.</p>
+<p>The critical turning point came on move 56 with ...Qc5, which threw away a massive winning advantage. At this point, Black had successfully promoted a pawn and had excellent winning chances, but this queen placement allowed White to force trades leading to the drawn king and pawn endgame. This single move cost Black the entire game.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>17. Bh4</strong> was your biggest mistake, losing 4.4 pawns of advantage. The bishop retreat allowed Black to consolidate their position when you had much stronger attacking options available. You should have maintained the pressure with more forcing moves that kept exploiting Black's weakened king position.</p>
-<p><strong>19. Qh5</strong> was another significant blunder, losing 5.2 pawns of advantage. This queen move allowed Black to escape some of the immediate threats when you had more direct attacking continuations. The computer evaluation dropped from +8.4 to +3.3, showing you let a completely winning position become merely advantageous.</p>
+<p><strong>56...Qc5:</strong> This was the game-losing blunder, throwing away 95 pawns of advantage! With Black having a new queen, keeping the queens on the board was essential to maintain winning chances. Instead of allowing White to trade queens with Qc4+, Black should have kept the queen more actively placed.</p>
+
+<p><strong>54...Ke3:</strong> Moving the king to e3 lost 63.5 pawns of advantage by walking into White's queen checks. The king was better placed supporting the advancing pawns from a safer square, avoiding the perpetual check patterns that White could create.</p>
+
+<p><strong>41...b4:</strong> This pawn advance lost 60 pawns of advantage by rushing forward without proper calculation. In complex positions with multiple pieces, it's crucial to look for the most forcing moves rather than simply pushing pawns, as this allowed White's queen to become more active with checks and threats.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>14. Qf3</strong> missed the tactical shot Bxh6, which would have been 1.7 pawns better. Playing Bxh6 would have immediately opened up Black's kingside and created serious mating threats against the exposed king. This type of sacrificial attack on h6 is a common tactical pattern you should look for when the opponent's king position is compromised.</p>
+<p><strong>28...d5 instead of a6:</strong> While d5 was natural, pushing the a-pawn with a6 would have been 1.9 pawns better, likely creating more counterplay on the queenside. In positions where you're being attacked, creating your own threats on the opposite wing can be very effective.</p>
+
+<p><strong>8...Bc5 instead of c6:</strong> The bishop retreat to c5 missed the stronger c6, which would have been 1.7 pawns better. Playing c6 would have solidified Black's pawn structure and prepared better piece coordination in the center.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>18. Qxg4</strong> was an excellent decision that gained material while maintaining your attack. This capture eliminated a dangerous Black piece while keeping pressure on their position.</p>
-<p><strong>21. Qh7+</strong> and <strong>22. Bg6+</strong> were perfect finishing moves that forced the checkmate sequence. These forcing checks drove the Black king into a mating net, showing good tactical vision in the final attack.</p>
+<p>Black showed excellent fighting spirit in the complex middlegame and successfully created dangerous passed pawns in the endgame. The pawn promotion to a queen on move 52 with ...c1=Q was well-calculated and gave Black real winning chances. Your persistence in pushing the pawns forward and creating threats kept the game interesting throughout.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached an endgame as you delivered checkmate in the middlegame with 24. Qxf7#. Your attacking play in the final phase was decisive, even though you had missed some earlier opportunities to finish the game more quickly.</p>
+<p>The endgame was extremely complex with multiple pawn races and queen trades. You successfully promoted not one but two pawns, which should have been winning! However, the key was avoiding the queen trades that led to the insufficient material draw. In queen endgames, keeping your queen active and avoiding perpetual checks is often more important than grabbing material.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on recognizing and playing forcing moves when you have a strong attack. When your opponent's king is exposed (like after Black's ...f5 and weakened kingside), look for immediate tactical shots like Bxh6 that open up the position rather than slower positional moves. Practice tactical puzzles involving sacrifices on h6 and h7 to improve your pattern recognition.</p>
+<p>The biggest lesson from this game is endgame technique with queens: when you have a winning position with queens on the board, be extremely careful about allowing queen trades. Practice calculating a few moves ahead before making queen moves to ensure you're not walking into forced sequences that lead to draws. Your tactical ability to create the winning position was excellent - now focus on converting those advantages!</p>
 </div>
         </section>
 
@@ -683,9 +687,9 @@
                 </div>
                 <div class="endgame-card equal">
                     <h4>&#9878;&#65039; Equal Positions</h4>
-                    <div class="big-number">30%</div>
-                    <div class="detail">3 won / 10 games</div>
-                    <div class="detail">Drew 1 &bull; Lost 6</div>
+                    <div class="big-number">27%</div>
+                    <div class="detail">3 won / 11 games</div>
+                    <div class="detail">Drew 2 &bull; Lost 6</div>
                 </div>
             </div>
         </section>
@@ -697,8 +701,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [602, 610, 618, 610, 618, 610, 602, 594, 586, 594, 586, 578, 586, 578, 570, 577, 569, 577, 569, 576, 584, 576, 568, 576, 583, 591, 583, 590, 598, 606];
-        const dates = ["2026-02-22", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-24", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-27", "2026-02-27", "2026-02-27", "2026-02-27", "2026-02-28", "2026-02-28", "2026-02-28", "2026-03-02", "2026-03-02", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-05", "2026-03-05", "2026-03-05"];
+        const ratings = [610, 618, 610, 618, 610, 602, 594, 586, 594, 586, 578, 586, 578, 570, 577, 569, 577, 569, 576, 584, 576, 568, 576, 583, 591, 583, 590, 598, 606, 606];
+        const dates = ["2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-23", "2026-02-24", "2026-02-24", "2026-02-25", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-26", "2026-02-27", "2026-02-27", "2026-02-27", "2026-02-27", "2026-02-28", "2026-02-28", "2026-02-28", "2026-03-02", "2026-03-02", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-05", "2026-03-05", "2026-03-05", "2026-03-05"];
 
         new Chart(ctx, {
             type: 'line',
