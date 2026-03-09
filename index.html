@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-09 12:30 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-09 13:56 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,37 +537,39 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>You played a reasonable Scotch Game opening with 3...Bb4+, putting pressure on White's center. The early moves were generally sound, though 5...Nge7 was a bit passive compared to more active alternatives. Overall, you emerged from the opening with a playable position.</p>
+<p>You played the Scotch Game opening reasonably well, developing pieces and maintaining a solid position through the first several moves. The early moves 3...Bb4+ and 4...Ba5 were acceptable, though they allowed White to gain some central space with d4-d5 and the bishop retreat wasn't ideal.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical moment came on move 13 when you played g6, attempting to block White's queen attack on h7. This move actually walked directly into checkmate, as it weakened the kingside fatally and allowed Qxh7# on the next move. This single move turned a roughly equal position into immediate defeat.</p>
+<p>The critical moment was 13...g6, which walked directly into checkmate and lost nearly 100 pawns of advantage according to the computer. This move, intended to block White's queen attack on h7, actually opened the door for Qxh7# mate since the g6 pawn weakened your king's shelter. You needed to find a different defensive move that didn't compromise your king safety.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>13...g6:</strong> This was the game-losing blunder, creating a massive weakness on h7 that White exploited with immediate checkmate. Instead, you needed to defend differently - moves like h6 to kick the knight or Ng6 to block the attack would have kept you in the game. <strong>12...Qc5:</strong> This queen move looked active but failed to address White's growing kingside attack with the knight on g5 and queen ready to join the assault. Better was to play defensively with moves like h6 or f6 to challenge White's pieces. <strong>11...d5:</strong> While this looks natural to challenge White's center, it opened up your position when your king was becoming unsafe, giving White more attacking chances than necessary.</p>
+<p><strong>13...g6:</strong> This was the game-ending blunder, allowing immediate mate with Qxh7#. Instead of weakening your kingside with this pawn move, you should have looked for moves like ...Ng6 or ...Qf8 to defend against the mate threat while keeping your king position intact.</p>
+<p><strong>12...Qc5:</strong> This queen move lost nearly 14 pawns of advantage by walking into White's tactical shot Qh5. The queen should have stayed closer to defend your kingside - moves like ...Qb6 or ...Qd7 would have been much safer.</p>
+<p><strong>11...d5:</strong> This pawn advance lost over 5 pawns of advantage by creating weaknesses and allowing White's pieces to become more active. A move like ...Ng6 or ...Re8 would have been better, focusing on piece development and king safety rather than pawn advances.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>The biggest miss was not recognizing the mating pattern when White played 13.Qh5. At this point, you needed to calculate that g6 would be met by checkmate, and instead find defensive resources like h6 or Ng6 to keep your king safe. Missing this tactical sequence cost you the game immediately.</p>
+<p>No specific missed tactical opportunities were identified in the Stockfish analysis, as the position deteriorated primarily through the blunders mentioned above. Your focus should be on avoiding the defensive mistakes rather than finding missed attacking chances.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>Your opening play through the first 10 moves was solid and principled. You developed pieces actively, castled to safety, and maintained decent piece coordination. The early bishop development with 3...Bb4+ showed good understanding of putting pressure on White's center.</p>
+<p>Your early opening development with moves like 2...Nc6 and 8...O-O showed good fundamental understanding of chess principles. Castling kingside was particularly important for getting your king to safety early in the game.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached an endgame due to the swift checkmate attack. The position was decided in the middlegame when tactical threats around your king became too dangerous to handle.</p>
+<p>The game never reached an endgame as it concluded with checkmate on move 14. The tactical sequence in the middlegame proved decisive before material imbalances could lead to an endgame phase.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on king safety awareness - when your opponent has attacking pieces (like the queen and knight) aimed at your king, always check if your defensive moves accidentally walk into checkmate. Before playing any move near your castled king, ask yourself: "Does this create new weaknesses that my opponent can exploit immediately?"</p>
+<p>Focus on king safety when your opponent's pieces are aimed at your castled position. Before making any move that changes your pawn structure around your king (like 13...g6), always check if it creates new weaknesses or mate threats - sometimes the move that looks most "defensive" actually makes things worse.</p>
 </div>
         </section>
 
