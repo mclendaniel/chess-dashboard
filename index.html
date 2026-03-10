@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-10 05:03 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-10 06:32 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -495,17 +495,17 @@
             </div>
             <div class="stat-card win">
                 <div class="icon">&#9989;</div>
-                <div class="value">150</div>
+                <div class="value">151</div>
                 <div class="label">Wins</div>
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">139</div>
+                <div class="value">140</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
                 <div class="icon">&#10134;</div>
-                <div class="value">13</div>
+                <div class="value">14</div>
                 <div class="label">Draws</div>
             </div>
             <div class="stat-card">
@@ -516,58 +516,61 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge win">
-                <span>&#128293;</span>
-                <span>Current Streak: 1 Win</span>
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 1 Loss</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge win">Won</div>
+                <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
-                    <span><span class="color-icon">&#9817;</span> Played as White</span>
-                    <span>vs Chewytacos (618)</span>
+                    <span><span class="color-icon">&#9823;</span> Played as Black</span>
+                    <span>vs Johnric10 (623)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/165744414334" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/165746109198" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening followed the Vienna Game with reasonable development - both players got their pieces out and fought for central control. White's early Bc4 and Nc3 setup was sound, and Black's counter with ...d5 created immediate central tension. The opening phase was handled competently by both sides with no major errors.</p>
+<p>The opening started as a Three Knights Game, which is perfectly reasonable. However, 3...Qf6 brought the queen out too early and created tactical vulnerabilities. White capitalized well with the knight fork on c7, winning material early in the game.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 8. Qf3, where White lost a massive 4.2 pawns of advantage, swinging the evaluation from slightly better for White (+0.9) to heavily favoring Black (-3.3). This premature queen move failed to address Black's active pieces and allowed Black to seize a commanding position. From this point forward, White was fighting an uphill battle for most of the game.</p>
+<p>The critical turning point was 42...Ka4, which lost over 30 pawns of advantage according to Stockfish. At this point, White was already winning but this move accelerated the loss significantly. The king wandered into an even more dangerous position where White's advanced pawns and queen coordination became unstoppable.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>8. Qf3</strong> was the biggest mistake - the queen moved to an exposed square too early without a clear purpose, allowing Black to gain tempo and coordinate their pieces effectively. A more solid move like 8. Nxd7 would have maintained equality. <strong>9. Nxd5</strong> compounded the problems by walking into further tactical complications, losing another 3.0 pawns when the position was already difficult. <strong>18. Qe1</strong> was a passive retreat that allowed Black to maintain their crushing advantage when more active defense was needed.</p>
+<p><strong>48...Ka2</strong> was the biggest blunder, losing 63.7 pawns of advantage. The king moved to a square where it would be mated quickly, allowing White's two queens to coordinate perfectly for checkmate. A move like Ka3 would have prolonged the game significantly.</p>
+<p><strong>42...Ka4</strong> lost 30.2 pawns by moving the king toward White's dangerous advanced pawns. The king should have stayed centralized or moved away from the immediate threats rather than walking into White's attacking zone.</p>
+<p><strong>30...Rc4</strong> was an earlier blunder that lost 4.8 pawns. This move allowed White to simplify the position favorably and enter a winning endgame. Better would have been to keep the rook more active on the back rank.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>On move 13, White played fxe3 to recapture the bishop, but missed the much stronger Qxe3 which would have been 1.7 pawns better. The queen recapture would have centralized the queen powerfully and created more counterplay opportunities. This represents a missed chance to fight back when the position was already difficult.</p>
+<p><strong>5...Qd6</strong> was played, but Qd8 would have been 2.0 pawns better. Keeping the queen closer to home would have avoided the tactical blow Nxc7+ that followed, maintaining better piece coordination.</p>
+<p><strong>41...Bf5</strong> was the chosen move, but Kb6 would have been 1.6 pawns superior. Moving the king toward the center earlier might have created better defensive chances in the complex endgame that followed.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>23. Rc8+</strong> was an excellent tactical shot that forced Black's rook to a fatal square, setting up the checkmate finish. <strong>24. Rxe8#</strong> delivered the decisive blow with a beautiful back-rank mate. These moves show great tactical awareness - you spotted the winning combination perfectly and executed it with confidence!</p>
+<p><strong>43...Bg6</strong> was an excellent defensive try that gained 3.6 pawns according to Stockfish! This move blocked White's dangerous passed pawn and created some tactical complications. Even in a losing position, you found the best practical chance to create difficulties for your opponent.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached a traditional endgame as it concluded with a brilliant tactical sequence in the middlegame. White's ability to find the checkmate pattern despite being in a losing position shows excellent tactical vision and fighting spirit.</p>
+<p>The endgame featured White with multiple queens against a lone king, which is always winning for the side with the queens. The key was that White's pawns promoted one by one, and eventually the queens could coordinate to deliver checkmate. Your king fought valiantly but was ultimately overwhelmed by the material disadvantage.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on keeping your queen safe in the opening and early middlegame - avoid moving it out too early without a concrete plan. The lesson from 8. Qf3 is that premature queen development often backfires because the queen becomes a target, so prioritize piece development and king safety first before bringing the queen into active play.</p>
+<p>Focus on king safety in endgames, especially when facing multiple enemy pieces. The biggest lesson is to avoid moving your king toward enemy threats unnecessarily - always look for squares that keep your king as far from immediate danger as possible, even in lost positions.</p>
 </div>
         </section>
 
@@ -676,7 +679,7 @@
                 <div class="endgame-card losing">
                     <h4>&#11015;&#65039; Losing Positions</h4>
                     <div class="big-number">24%</div>
-                    <div class="detail">11 saved / 45 games</div>
+                    <div class="detail">11 saved / 46 games</div>
                     <div class="detail">Wins + Draws from behind</div>
                 </div>
                 <div class="endgame-card equal">
@@ -695,8 +698,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [577, 569, 576, 584, 576, 568, 576, 583, 591, 583, 590, 598, 606, 606, 614, 622, 614, 622, 614, 622, 614, 622, 614, 606, 614, 606, 614, 623, 615, 623];
-        const dates = ["2026-02-27", "2026-02-28", "2026-02-28", "2026-02-28", "2026-03-02", "2026-03-02", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-05", "2026-03-05", "2026-03-05", "2026-03-05", "2026-03-06", "2026-03-06", "2026-03-06", "2026-03-07", "2026-03-07", "2026-03-07", "2026-03-07", "2026-03-08", "2026-03-08", "2026-03-08", "2026-03-08", "2026-03-08", "2026-03-09", "2026-03-09", "2026-03-09", "2026-03-10"];
+        const ratings = [584, 576, 568, 576, 583, 591, 583, 590, 598, 606, 606, 614, 622, 614, 622, 614, 622, 614, 622, 614, 606, 614, 606, 614, 623, 615, 623, 623, 631, 623];
+        const dates = ["2026-02-28", "2026-03-02", "2026-03-02", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-03", "2026-03-05", "2026-03-05", "2026-03-05", "2026-03-05", "2026-03-06", "2026-03-06", "2026-03-06", "2026-03-07", "2026-03-07", "2026-03-07", "2026-03-07", "2026-03-08", "2026-03-08", "2026-03-08", "2026-03-08", "2026-03-08", "2026-03-09", "2026-03-09", "2026-03-09", "2026-03-10", "2026-03-10", "2026-03-10", "2026-03-10"];
 
         new Chart(ctx, {
             type: 'line',
