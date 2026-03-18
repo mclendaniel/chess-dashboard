@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-18 20:23 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-18 21:23 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,37 +537,41 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>White opened with the Bishop's Opening (2. Bc4) but immediately went astray with 3. Qf3, bringing the queen out too early and creating tactical vulnerabilities. The early queen sortie allowed Black to create central pressure with 4...Nd4, and White had to retreat the queen awkwardly with 5. Qd1, losing valuable tempo and falling behind in development.</p>
+<p>The opening started reasonably with the Bishop's Opening (2.Bc4), but White's early queen sortie with 3.Qf3 was premature and allowed Black to gain time with ...Nd4. The subsequent queen retreat to d1 on move 5 wasted valuable tempo, giving Black a comfortable position with good piece development.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 21. Nb2, which was a catastrophic blunder that lost nearly 90 pawns of advantage according to the engine. This move completely ignored Black's devastating checkmate threat with Qxg2#, showing a lack of awareness of immediate tactical dangers. White needed to address the mate threat urgently rather than casually repositioning the knight.</p>
+<p>The critical turning point was 18.Bxf4, where White captured the knight on f4 with the bishop instead of finding a better alternative. This blunder cost nearly 5 pawns of advantage and allowed Black's pieces to coordinate powerfully against White's exposed king. From this point forward, Black maintained crushing pressure that White could never escape.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>21. Nb2</strong> was the game-ending blunder, allowing immediate checkmate with 21...Qxg2#. White needed to play a move like 21. Rf2 or another defensive move to prevent the mate threat along the second rank. <strong>20. e5</strong> was also a serious mistake that opened up White's kingside and gave Black's pieces more attacking chances - a quieter move would have been much safer. <strong>18. Bxf4</strong> was another significant error, as capturing the knight removed White's only well-placed piece and allowed Black's bishop on f4 to dominate the kingside, creating the mating attack that would soon follow.</p>
+<p><strong>21.Nb2</strong> was the final catastrophic blunder, losing 89.5 pawns of advantage as it failed to address the immediate mate threat. With Black's bishop on f3 and queen eyeing g2, White needed to defend the kingside desperately, but instead moved the knight away from any defensive role, allowing ...Qxg2# on the next move.</p>
+
+<p><strong>20.e5</strong> was another serious mistake, losing 5 pawns of advantage by pushing forward when White's position was already deteriorating. This advance opened more lines for Black's attacking pieces without providing any meaningful counterplay or defensive resources.</p>
+
+<p><strong>18.Bxf4</strong> was the move that started White's downfall, losing nearly 5 pawns by trading the bishop for the knight. Instead of this capture, White should have looked for ways to consolidate the position and address the growing threats around the king.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>The Stockfish data doesn't identify specific missed opportunities, but White clearly missed several chances to consolidate the position safely in the middlegame. After Black's aggressive piece play, White should have focused on defensive moves rather than trying to trade pieces, which only accelerated Black's attack.</p>
+<p>No specific missed tactical opportunities were identified by the engine analysis, but White consistently failed to recognize the growing mating attack. The main missed opportunity was not prioritizing king safety once Black's pieces became so actively placed around moves 15-18.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>While the Stockfish data doesn't highlight specific good moves, White did manage reasonable piece development in the early middlegame with moves like 8. O-O, getting the king to safety. The move 15. d4 showed good central play, trying to open the position when behind in development, though it ultimately backfired due to tactical oversights.</p>
+<p>White's early development with 7.Nf3 and 8.O-O showed good opening principles by getting the king to safety and developing pieces toward the center. The castling move in particular was essential for king safety, even though it wasn't enough to prevent the later attack.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached an endgame, as Black delivered a swift checkmate in the middlegame. White's king position became fatally compromised after the series of tactical blunders, allowing Black's queen and bishops to coordinate for a decisive mating attack.</p>
+<p>The game never reached an endgame as Black delivered checkmate in the middlegame. White's king position became fatally compromised, and the coordinated attack with Black's queen and bishops proved decisive.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>The most important lesson is to always check for immediate threats, especially checkmate, before making any move. Before playing 21. Nb2, White should have asked "What is my opponent threatening?" and would have spotted the mate in one. Developing this habit of threat awareness will prevent many games from ending so abruptly.</p>
+<p>The most important lesson is to recognize and defend against mating attacks. When your opponent has active pieces aimed at your king (like the bishop on f3 and queen on g5), you must prioritize defensive moves over other considerations. Always check for immediate mate threats before making any move, especially in tactical positions.</p>
 </div>
         </section>
 
