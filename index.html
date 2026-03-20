@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-20 03:26 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-20 05:10 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -485,7 +485,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">&#127919;</div>
-                <div class="value">606</div>
+                <div class="value">598</div>
                 <div class="label">Current Rating</div>
             </div>
             <div class="stat-card">
@@ -500,7 +500,7 @@
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">150</div>
+                <div class="value">151</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -516,61 +516,62 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge win">
-                <span>&#128293;</span>
-                <span>Current Streak: 2 Wins</span>
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 1 Loss</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge win">Won</div>
+                <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
                     <span><span class="color-icon">&#9823;</span> Played as Black</span>
-                    <span>vs Arunshiva (581)</span>
+                    <span>vs Nic-Nightingale (604)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/166139217730" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/166181393416" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>You played the Berlin Defense in the Ruy Lopez, which is a solid opening choice. The early moves were reasonable, though 5...Be6 wasn't the most accurate development - the bishop could have been more actively placed. White's 4.Bxc6 exchange variation gave you doubled pawns but also the bishop pair advantage.</p>
+<p>You played the Queen's Gambit Accepted reasonably well, accepting the gambit pawn with 2...dxc4 and developing your pieces naturally. The opening proceeded normally until move 5, where both sides began creating central tension with d5 and the knight retreat to a5.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The game's turning point was 11...Bc5, which was a massive blunder losing nearly 7 pawns of advantage! This move walked directly into White's tactical shot, allowing the position to swing dramatically from winning for you to losing. After this move, White had a crushing advantage that should have been decisive.</p>
+<p>The game was decided on move 15 with 15...b6, which walked directly into checkmate in one move. This move ignored the immediate threat of Qxh7# and instead focused on developing the queenside, which was completely irrelevant given the mate threat. Always check for immediate threats to your king before making routine developing moves.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>11...Bc5:</strong> This was the game's biggest mistake, losing 6.8 pawns of advantage. The bishop moved to an undefended square where it could be captured with tempo, and you likely missed White's tactical threats. A more defensive move would have maintained your winning position.</p>
-<p><strong>8...Qd4:</strong> This centralized queen move looked active but lost 2.1 pawns of advantage. The queen became a target in the center and allowed White to gain tempo with attacking moves. A quieter developing move would have been safer.</p>
-<p><strong>13...fxe6:</strong> Recapturing with the f-pawn further weakened your kingside structure and lost another 2.1 pawns. This opened lines toward your king that White could exploit, though fortunately your opponent missed the best continuation.</p>
+<p><strong>15...b6:</strong> This move lost the game instantly by allowing 16.Qxh7#. With White's queen on e4 and bishop on d3 both aiming at your kingside, you needed to address the mate threat on h7 immediately. Instead of b6, you should have played a move like 15...f5 or 15...g6 to block the mate, or even 15...Rf6 to defend along the f-file.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>5...Be6 instead of 5...Qd4:</strong> You developed the bishop passively when the aggressive 5...Qd4 would have been 1.9 pawns better. Qd4 would have centralized your queen immediately and put pressure on White's position.</p>
-<p><strong>9...gxf6 instead of 9...Bd6:</strong> After White captured your knight, you recaptured mechanically with the g-pawn. The move 9...Bd6 would have been 1.9 pawns better, developing with tempo and maintaining better piece coordination.</p>
+<p><strong>5...Na5 instead of 5...Nxe4:</strong> You retreated the knight when you could have captured the central pawn with 5...Nxe4, winning material and maintaining a strong central presence. The knight on e4 would have been well-placed and difficult for White to dislodge immediately.</p>
+
+<p><strong>14...Nd7 instead of 14...Nbxc4:</strong> You moved the knight from b6 to d7, but you could have captured the bishop on c4 with 14...Nbxc4, winning a piece. This would have given you a significant material advantage and likely winning position.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>16...Qxg2#:</strong> Excellent tactical awareness to spot this checkmate! You found the perfect finish with your queen sliding to g2, delivering mate despite being in a difficult position earlier. This shows good pattern recognition and the importance of always looking for tactical shots even when behind.</p>
+<p><strong>12...Bxd2+:</strong> Excellent tactical awareness! You correctly traded your bishop for White's bishop while giving check, forcing White's knight to recapture and disrupting their piece coordination.</p>
+
+<p><strong>7...Nxd5:</strong> Great central play! You correctly captured the pawn on d5, eliminating White's advanced pawn and centralizing your knight on an excellent square where it controls many key squares.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached an endgame as you delivered checkmate in the middlegame on move 16. Your opponent became too focused on attacking your king and left their own king fatally exposed, allowing you to turn the tables with a brilliant tactical finish.</p>
+<p>The game never reached an endgame due to the checkmate on move 16. With both sides having developed most of their pieces and castled, the game was still in the middlegame phase when it concluded.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on improving your tactical awareness, particularly looking for undefended pieces before making moves. The blunder 11...Bc5 could have been avoided by asking "Is my piece safe on this square?" before moving. Practice tactical puzzles daily to sharpen your pattern recognition and avoid leaving pieces hanging.</p>
+<p>Before making any move, always scan for immediate threats to your king, especially checkmate in one. Develop a habit of asking "What is my opponent threatening?" before considering your own plans. In this position, a quick check would have revealed the mate threat on h7 and allowed you to defend appropriately.</p>
 </div>
         </section>
 
@@ -698,8 +699,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [606, 614, 606, 614, 623, 615, 623, 623, 631, 623, 631, 623, 615, 607, 599, 591, 599, 607, 599, 607, 615, 607, 599, 599, 599, 606, 598, 590, 598, 606];
-        const dates = ["2026-03-08", "2026-03-08", "2026-03-08", "2026-03-09", "2026-03-09", "2026-03-09", "2026-03-10", "2026-03-10", "2026-03-10", "2026-03-10", "2026-03-10", "2026-03-11", "2026-03-11", "2026-03-12", "2026-03-12", "2026-03-13", "2026-03-13", "2026-03-14", "2026-03-14", "2026-03-14", "2026-03-14", "2026-03-15", "2026-03-15", "2026-03-16", "2026-03-16", "2026-03-17", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-19"];
+        const ratings = [614, 606, 614, 623, 615, 623, 623, 631, 623, 631, 623, 615, 607, 599, 591, 599, 607, 599, 607, 615, 607, 599, 599, 599, 606, 598, 590, 598, 606, 598];
+        const dates = ["2026-03-08", "2026-03-08", "2026-03-09", "2026-03-09", "2026-03-09", "2026-03-10", "2026-03-10", "2026-03-10", "2026-03-10", "2026-03-10", "2026-03-11", "2026-03-11", "2026-03-12", "2026-03-12", "2026-03-13", "2026-03-13", "2026-03-14", "2026-03-14", "2026-03-14", "2026-03-14", "2026-03-15", "2026-03-15", "2026-03-16", "2026-03-16", "2026-03-17", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-19", "2026-03-20"];
 
         new Chart(ctx, {
             type: 'line',
