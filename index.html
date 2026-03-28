@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-28 17:18 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-28 18:21 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -485,7 +485,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">&#127919;</div>
-                <div class="value">647</div>
+                <div class="value">639</div>
                 <div class="label">Current Rating</div>
             </div>
             <div class="stat-card">
@@ -500,7 +500,7 @@
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">157</div>
+                <div class="value">158</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -510,68 +510,64 @@
             </div>
             <div class="stat-card">
                 <div class="icon">&#128200;</div>
-                <div class="value">50%</div>
+                <div class="value">49%</div>
                 <div class="label">Win Rate</div>
             </div>
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge draw">
-                <span>&#10134;</span>
-                <span>Current Streak: 1 Draw</span>
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 1 Loss</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge draw">Drew</div>
+                <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
-                    <span><span class="color-icon">&#9823;</span> Played as Black</span>
-                    <span>vs Kuposs (664)</span>
+                    <span><span class="color-icon">&#9817;</span> Played as White</span>
+                    <span>vs LeonA7f (668)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/166544155634" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/166553988758" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening developed reasonably well with 1.d4 d5 2.Nf3 Nc6 3.e3 Nf6, reaching a Queen's Pawn Opening structure. White's early bishop exchange with 4.Bb5 and 5.Bxc6+ gave Black doubled pawns but also the bishop pair, leading to a roughly balanced position where both sides had chances.</p>
+<p>The opening followed the Caro-Kann Defense reasonably well through the first several moves. White's early Bc4-b5+ maneuver was a bit unusual but not harmful, and both sides developed their pieces naturally with castling completed by move 9.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical moment came at move 65 when Black played Ke3, allowing stalemate and throwing away a completely winning position. This was the ultimate turning point where Black went from a forced mate to drawing the game. Understanding basic stalemate patterns is crucial to avoid such heartbreaking losses.</p>
+<p>The critical moment was move 35. Ngf5, which was a catastrophic blunder that lost over 90 pawns of advantage according to the engine. This move allowed Black to deliver a forced checkmate sequence starting with 35...Qc1+, turning what was already a difficult position into an immediately lost one. The knight move failed to address the deadly checks that Black could deliver.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>65...Ke3:</strong> This was the most devastating blunder, allowing stalemate when Black was winning. Instead of trapping the White king, Black should have kept White's king mobile with moves that maintained mating threats while avoiding stalemate patterns.</p>
-<p><strong>55...a2:</strong> This move was premature and allowed White counterplay. Black should have coordinated the pieces better before advancing the pawn, perhaps improving the rook's position first to maintain better control.</p>
-<p><strong>60...Kxf5:</strong> Taking the pawn was natural but imprecise in the winning technique. Black should have focused on improving piece coordination and maintaining maximum pressure rather than material gain when already significantly ahead.</p>
+<p>Move 35. Ngf5 was the game-losing blunder, dropping from -9.2 to -99.9 in evaluation. This knight move did nothing to stop Black's devastating check sequence and actually made the position worse by removing a defender. Move 37. Ke3 was the final blunder that walked directly into checkmate via 37...Qxd3#, when any other king move might have prolonged the game. Earlier, 31. Rxc3 was also a significant mistake that gave Black a winning advantage by allowing the powerful centralized queen to dominate the position with checks.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>No significant missed opportunities were identified by the analysis beyond the major blunders. The game followed a relatively natural course until the endgame phase where technique became crucial.</p>
+<p>On move 24, White played Ra1 but missed the much stronger Nxd4, which would have been 1.8 pawns better by centralizing the knight and creating tactical threats. Earlier on move 10, White chose Nce2 but missed Nge2, which would have been 1.6 pawns superior by developing the knight to a more active square while keeping better piece coordination.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>44...Kxg6:</strong> Excellent king activity! This move centralized the king effectively and improved Black's position in the emerging endgame, showing good understanding of king activity principles.</p>
-<p><strong>59...Qxg4:</strong> A strong capture that consolidated Black's material advantage while maintaining pressure on White's position. This move demonstrated good tactical awareness in converting the advantage.</p>
-<p><strong>43...Rxg6:</strong> Good practical choice in the exchange, maintaining material balance while keeping the initiative and better piece coordination in the resulting position.</p>
+<p>White found one good move in this difficult game with 33. Kd2, which gained half a pawn in the evaluation. This king move was the best available option in a very challenging position, showing good defensive instincts by trying to centralize the king and avoid immediate tactical shots. Even in a losing position, finding the most resilient moves demonstrates good fighting spirit!</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The endgame was handled well initially, with Black successfully converting material advantages and maintaining pressure throughout the middle phases. However, the final technique broke down with stalemate awareness becoming the decisive factor. Queen and king versus lone king requires careful attention to stalemate motifs.</p>
+<p>The game never reached a proper endgame as it concluded in the middlegame with a checkmate. White's king became dangerously exposed to Black's coordinated pieces, and the final mating attack was swift and decisive.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Study basic stalemate patterns, especially in queen versus king endings. Before making any move in a winning endgame, always check: "Does my opponent have any legal moves after this?" Practice simple mating patterns to avoid throwing away won games through stalemate tricks.</p>
+<p>Focus on king safety when under attack - when facing a series of checks, carefully calculate each king move to avoid walking into checkmate. Before making any move in a tactical sequence, always ask yourself: "Does this move address my opponent's threats, or am I just making my position worse?"</p>
 </div>
         </section>
 
@@ -630,18 +626,6 @@
             <div class="openings-container">
                 
         <div class="opening-card worst">
-            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fppp1pppp%2F3p4%2F8%2F4P3%2F8%2FPPPP1PPP%2FRNBQKBNR%20w%20KQkq%20-%200%202&color=white&theme=brown&piece=cburnett" alt="Pirc Defense 2.Bc4">
-            <h4>Pirc Defense 2.Bc4</h4>
-            <div class="win-rate">
-                <div class="progress-bar">
-                    <div class="progress" style="width: 25.0%"></div>
-                </div>
-                <span>25%</span>
-            </div>
-            <div class="record">1W - 3L - 0D</div>
-        </div>
-        
-        <div class="opening-card worst">
             <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fpppp1ppp%2F4p3%2F8%2F4P3%2F8%2FPPPP1PPP%2FRNBQKBNR%20w%20KQkq%20-%200%202&color=white&theme=brown&piece=cburnett" alt="French Defense">
             <h4>French Defense</h4>
             <div class="win-rate">
@@ -651,6 +635,18 @@
                 <span>25%</span>
             </div>
             <div class="record">2W - 5L - 1D</div>
+        </div>
+        
+        <div class="opening-card worst">
+            <img src="https://lichess1.org/export/fen.gif?fen=rnbqkbnr%2Fpp1ppppp%2F2p5%2F8%2F4P3%2F8%2FPPPP1PPP%2FRNBQKBNR%20w%20KQkq%20-%200%202&color=white&theme=brown&piece=cburnett" alt="Caro Kann Defense">
+            <h4>Caro Kann Defense</h4>
+            <div class="win-rate">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 25.0%"></div>
+                </div>
+                <span>25%</span>
+            </div>
+            <div class="record">1W - 3L - 0D</div>
         </div>
         
         <div class="opening-card worst">
@@ -699,8 +695,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [615, 607, 599, 599, 599, 606, 598, 590, 598, 606, 598, 590, 598, 590, 582, 590, 598, 606, 598, 606, 614, 622, 630, 638, 647, 655, 647, 655, 647, 647];
-        const dates = ["2026-03-14", "2026-03-15", "2026-03-15", "2026-03-16", "2026-03-16", "2026-03-17", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-19", "2026-03-20", "2026-03-23", "2026-03-24", "2026-03-24", "2026-03-24", "2026-03-24", "2026-03-24", "2026-03-25", "2026-03-25", "2026-03-25", "2026-03-26", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-28"];
+        const ratings = [607, 599, 599, 599, 606, 598, 590, 598, 606, 598, 590, 598, 590, 582, 590, 598, 606, 598, 606, 614, 622, 630, 638, 647, 655, 647, 655, 647, 647, 639];
+        const dates = ["2026-03-15", "2026-03-15", "2026-03-16", "2026-03-16", "2026-03-17", "2026-03-17", "2026-03-18", "2026-03-19", "2026-03-19", "2026-03-20", "2026-03-23", "2026-03-24", "2026-03-24", "2026-03-24", "2026-03-24", "2026-03-24", "2026-03-25", "2026-03-25", "2026-03-25", "2026-03-26", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-28", "2026-03-28"];
 
         new Chart(ctx, {
             type: 'line',
