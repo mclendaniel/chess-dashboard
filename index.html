@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-28 14:21 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-28 15:18 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,37 +537,45 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>Both players handled the opening reasonably well, with White playing a Queen's Pawn Opening that transposed into familiar patterns. The early bishop exchange with 5. Bxc6+ gave Black doubled pawns but also opened lines, and Black's development with moves like 7...Ba6 and 6...Bb4 was active and purposeful.</p>
+<p>The opening developed reasonably well with a Queen's Pawn game. Both players made sensible developing moves, though White's early bishop exchange with 5.Bxc6+ gave Black the bishop pair and doubled White's pawn structure wasn't ideal. The position remained roughly balanced through the opening phase.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The most critical moment was 65...Ke3, where Black had achieved a completely winning position with queen and king versus lone king. This move inexplicably threw away a forced mate and allowed White to claim a stalemate draw. This single move cost Black a full 100 points of evaluation, turning a certain victory into a draw.</p>
+<p>The critical moment came at move 65 with 65...Ke3, which threw away a completely winning position and led to stalemate. Black had successfully promoted pawns and achieved a dominant position with queen and king versus lone king, but this final king move left White with no legal moves, resulting in a stalemate draw instead of the certain victory Black had earned.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>65...Ke3:</strong> This was the game-losing blunder, allowing stalemate when Black had mate in a few moves. Instead of bringing the king closer, Black should have given check with the queen to force the White king to move, then delivered mate. <strong>60...Kxf5:</strong> Taking the pawn with the king wasn't necessary and made the winning process more difficult. The king should have stayed more centrally placed while using the queen to restrict White's king. <strong>55...a2:</strong> Pushing this pawn wasn't the most efficient path to victory, though Black was still winning. Better would have been to coordinate the pieces more actively to support the advancing pawns.</p>
+<p><strong>65...Ke3:</strong> This was the game-losing blunder, throwing away a won position worth 100 pawns of advantage. By moving the king to e3, Black accidentally created a stalemate position where White's king on e1 had no legal moves. Black should have kept the white king mobile while delivering checkmate with the queen.</p>
+
+<p><strong>55...a2:</strong> This move lost 65 pawns of advantage during the complex endgame. While Black was still winning, this inaccuracy made the conversion more difficult than necessary. A more precise move would have maintained the clearer winning advantage.</p>
+
+<p><strong>60...Kxf5:</strong> Another significant inaccuracy losing 64.7 pawns of advantage. While still winning, Black chose a less efficient path to victory. More direct king centralization or queen activity would have maintained the overwhelming advantage more clearly.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>No significant missed opportunities were identified in the middle game, as both players navigated the complex tactical positions reasonably well. The main misses occurred in the winning endgame phase where Black had several different paths to victory but chose less efficient continuations.</p>
+<p>No significant missed opportunities were identified in the Stockfish analysis. The major errors were execution mistakes in winning positions rather than missing tactical or strategic opportunities during the game's competitive phases.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>44...Kxg6:</strong> Excellent king activity, bringing the monarch into the center of the action and supporting the passed pawns. This move improved Black's position by activating the most important piece in the endgame. <strong>59...Qxg4:</strong> Great capture that eliminated White's last pawn while maintaining winning chances. This move kept the material advantage clear and prevented any counterplay. <strong>43...Rxg6:</strong> Smart rook play, trading off material while maintaining the winning advantage and simplifying to a favorable endgame.</p>
+<p><strong>44...Kxg6:</strong> An excellent practical decision, correctly recapturing the pawn and maintaining material balance while improving the king's position. This move kept Black in the game during a critical phase.</p>
+
+<p><strong>59...Qxg4:</strong> A strong move that eliminated White's dangerous passed pawn and simplified into a winning queen endgame. This showed good practical sense in converting the advantage.</p>
+
+<p><strong>43...Rxg6:</strong> Good tactical awareness, making the correct recapture and maintaining material equilibrium while keeping the position sharp and complex.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>Black played the complex rook and pawn endgame very well, successfully promoting pawns and transitioning to a queen endgame. The technique of advancing connected passed pawns was handled correctly, and Black achieved the dream scenario of queen versus lone king. However, the final stalemate was a heartbreaking way to lose a completely won position.</p>
+<p>Black handled the complex rook and pawn endgame well, successfully promoting pawns and achieving a technically winning queen versus king endgame. However, the final technique let them down when stalemate patterns weren't recognized. This is a common challenge in queen endgames where the superior side must be careful not to trap the opponent's king completely.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Learn basic checkmate patterns with queen and king versus lone king, and always check for stalemate before making your move when the opponent has limited pieces. In winning positions, take your time to find the cleanest path to victory rather than rushing, especially when your opponent's king has very few legal moves.</p>
+<p>Learn basic stalemate patterns, especially in queen versus king endgames. Always ensure the opponent's king has at least one legal move when you're not delivering checkmate. Practice simple checkmate techniques with queen and king versus king to avoid such heartbreaking draws in winning positions.</p>
 </div>
         </section>
 
