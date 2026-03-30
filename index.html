@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-30 12:44 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-03-30 14:17 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,37 +537,45 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening was reasonably solid for both sides in this Modern Defense. White developed pieces naturally with Bc4, Nc3, and the early queen sortie to f3 and then h3, while Black responded with the typical g6, Bg7 fianchetto setup. The early tactics around moves 6-11 actually favored White significantly after Black's bold but risky central play with Nd4.</p>
+<p>The opening developed reasonably well with a Modern Defense setup from Black. White's early queen moves with 4.Qf3 and 6.Qh3 were somewhat premature but led to active piece play. The tactical sequence around moves 8-11 where White captured on h6 and then won Black's knight on d4 gave White a solid early advantage.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was move 47. Ke1, which lost a massive 13.4 pawns of advantage according to the computer. At this point, White was actually winning by +2.8 but walked straight into a mating net. This move allowed Black's pieces to coordinate perfectly for the final attack, turning a winning position into a lost one in just a few moves.</p>
+<p>The critical turning point was 47.Ke1, which transformed a winning position (+2.8) into a losing one (-10.6). This move walked the king into a fatal mating net where Black's pieces could coordinate for a devastating attack. What seemed like a reasonable king move to escape checks actually placed the king in maximum danger.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>48. Nf4</strong> was the final catastrophic blunder, losing 83.9 pawns of advantage as it allowed immediate checkmate. The knight move did nothing to address Black's mating threats and actually made the king's position even more precarious. <strong>47. Ke1</strong> was equally devastating, walking the king into the center where Black's queen and rook could deliver mate. The king should have stayed on the kingside where it had more escape squares. <strong>27. Qf6</strong> was an earlier significant mistake that lost 7.3 pawns by allowing Black to consolidate with tempo via Nd5+, when White should have been looking to maintain the initiative with more active piece play.</p>
+<p><strong>48.Nf4:</strong> This final blunder sealed the game, losing 83.9 pawns of advantage as the position went from difficult (-16.0) to completely hopeless (-99.9). The knight move failed to address Black's mating threats and allowed the decisive 48...Rc1+ which led directly to checkmate. Any defensive move would have been better than moving the knight away from the defense.</p>
+
+<p><strong>47.Ke1:</strong> This was the game-losing blunder, turning a winning endgame into a lost position. Moving the king to e1 placed it on the same file as Black's rook and allowed the devastating checks that followed. Keeping the king on d2 or moving to a safer square like Kd1 would have maintained winning chances.</p>
+
+<p><strong>27.Qf6:</strong> This queen move lost significant advantage (7.3 pawns) by allowing Black's strong 27...Nd5+, forking the king and queen. The queen was too aggressively placed and had no safe retreat squares. A more restrained approach would have maintained White's substantial advantage from the opening tactics.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>While specific missed opportunities aren't detailed in the engine data beyond the blunders, the overall pattern suggests White missed chances to consolidate the significant advantage gained in the early middlegame. After the strong sequence from moves 11-21, White had built up a commanding position but failed to find the most accurate continuation to convert this advantage into a win.</p>
+<p>No significant missed opportunities were identified by the analysis beyond the major blunders discussed above. The game's outcome was primarily determined by the critical king safety errors in the endgame rather than missed tactical shots.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>21. Qc3+</strong> was excellent, improving White's position to +5.6 by forcing Black's king to an awkward square while maintaining pressure. <strong>12. Qxe4</strong> was very strong, capitalizing on Black's central pawn sacrifice to reach a +5.8 evaluation while keeping the queen actively placed. <strong>11. Qxd4</strong> was the best move in the position, achieving +6.0 by winning material and maintaining a dominant central presence - this showed good tactical awareness in capturing the advanced knight.</p>
+<p><strong>21.Qc3+:</strong> An excellent check that improved White's position to +5.6 by forcing Black's king to a worse square and maintaining active piece coordination. This move demonstrated good tactical awareness in keeping the initiative.</p>
+
+<p><strong>12.Qxe4:</strong> A strong recapture that maintained material balance while keeping the position at +5.8 in White's favor. This move centralized the queen effectively and maintained pressure on Black's position.</p>
+
+<p><strong>11.Qxd4:</strong> The best follow-up to the tactical sequence, reaching +6.0 advantage by winning the knight on d4. This move capitalized perfectly on the earlier tactical play and gave White a commanding position.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached a true endgame as Black delivered checkmate in the middlegame. The final position shows a classic mating pattern where Black's queen and rook worked together to trap the White king, with the White pieces unable to provide adequate defense due to their poor coordination.</p>
+<p>The endgame was poorly handled due to serious king safety issues. White had winning chances but allowed the king to become exposed to Black's active rooks and queen. The final mating attack was swift and decisive once White's king ventured into the danger zone.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>The most important lesson is king safety in complex positions - when ahead in material or position, prioritize keeping your king safe rather than chasing additional gains. Specifically, practice recognizing when your king is walking into danger and always look for the safest square, not just any legal move, especially when under time pressure in the endgame.</p>
+<p>Focus on king safety, especially in complex endgames with multiple pieces on the board. Before making any king move, carefully check for opponent tactics like checks, forks, and mating patterns. In this game, keeping the king safer on moves 47 and 48 would have preserved a winning advantage instead of walking into checkmate.</p>
 </div>
         </section>
 
