@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-04 09:26 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-04 10:20 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,43 +537,37 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>You handled the Petrov Defense opening quite well, correctly capturing on e4 with 4...Nxe4 after White retreated the knight. The early development with 5...d5 and 6...Bf5 was solid, establishing central control and getting pieces active. Your opening play was actually quite strong for your rating level.</p>
+<p>You played the Petrov Defense (1...e5 2.Nf3 Nf6) which is a solid choice, but 3...Qe7 is somewhat unusual - most players recapture with 3...d6 or 3...Nxe4. The early queen development worked out fine as you were able to win material with 4...Nxe4, and the opening transitioned into a complex middlegame where both sides had chances.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 21...Qxc7, where you recaptured the bishop but walked into a devastating king hunt. This move lost over 11 pawns of advantage according to the engine, transforming a roughly equal position into a completely losing one. From this point forward, White's pieces coordinated perfectly to chase your king around the board until checkmate.</p>
+<p>The critical turning point was 21...Qxc7, which lost over 11 pawns of advantage according to the computer. This move walked directly into White's tactical sequence starting with 22.Qe4+, which forced your king on a dangerous journey across the board. Instead of recapturing immediately, you needed to find a way to keep your king safer while maintaining your material advantage.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>21...Qxc7:</strong> While recapturing material seems natural, this move allowed White's queen and bishop to create an unstoppable attack on your exposed king. A move like 21...Kxb8 would have kept your king safer while still maintaining material balance.</p>
-
-<p><strong>23...Kd8:</strong> Moving the king toward the center made it even more vulnerable to White's attacking pieces. After the bishop check on a6+, your king needed to find a safer square, but Kd8 only made White's follow-up checks more powerful.</p>
-
-<p><strong>27...Qf4:</strong> This final move was essentially the losing blunder, though the position was already very difficult. By this point White had Qe8# ready, and your queen move didn't address the immediate checkmate threat on the back rank.</p>
+<p><strong>27...Qf4</strong> was the final blunder, losing 93 pawns of advantage and leading directly to checkmate with 28.Qe8#. This move ignored the immediate mate threat and didn't provide any defense to your exposed king on f8. <strong>21...Qxc7</strong> was the game-losing blunder that started your troubles, as it allowed White's queen to begin checking your king with 22.Qe4+. <strong>23...Kd8</strong> continued moving your king toward the center where it became more vulnerable - sometimes when being checked, you need to find the safest square rather than the most natural one.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>14...Qb4+:</strong> Instead of the queen check, 14...Kb8 would have been significantly stronger, getting your king to safety before White could launch an attack. King safety should often take priority over creating checks that don't lead to concrete benefits.</p>
-
-<p><strong>25...Ne7:</strong> Here you missed 25...Kf8, which would have been a better try to give your king an escape route. While the position was already very difficult, keeping more flight squares available is crucial when under attack.</p>
+<p><strong>14...Qb4+</strong> was good, but the computer suggests 14...Kb8 would have been 1.6 pawns better, likely keeping your king safer on the queenside. <strong>25...Ne7</strong> was played when you were already in serious trouble, but 25...Kf8 would have been slightly more resilient, though White was still winning by that point.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>Your early game showed good understanding of piece development and central control. The sequence 4...Nxe4 followed by 5...d5 and 6...Bf5 demonstrated solid opening principles. You also showed fighting spirit by continuing to look for counterplay with moves like 16...h5 and later 27...Qf4, even when the position became difficult.</p>
+<p>Your early tactical play was quite good - moves like 4...Nxe4 and 10...Nd4 showed you were actively looking for ways to improve your position and create counterplay. The move 14...Qb4+ was well-timed, putting pressure on White's position and forcing them to make decisions about their king safety.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached a true endgame as White's attack succeeded in the middlegame. The final position shows a classic back-rank checkmate pattern, where your king had no escape squares and White's queen delivered mate on e8.</p>
+<p>The game never reached a true endgame as it concluded in the middlegame with a checkmate. Your king became too exposed during the tactical sequence, and White was able to coordinate their pieces for a decisive attack.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on king safety, especially after castling queenside. When your opponent's pieces become active and start creating threats, prioritize getting your king to safety over winning material. Practice recognizing when your king is in danger and always look for the safest square, even if it means giving up material or tempo.</p>
+<p>The most important lesson is king safety - when your opponent has active pieces and is giving checks, always look for the safest square for your king rather than automatically recapturing material. Practice recognizing when material gain isn't worth exposing your king to danger, and work on calculating forced sequences (checks, captures, threats) more carefully.</p>
 </div>
         </section>
 
