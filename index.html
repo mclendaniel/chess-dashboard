@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-04 07:40 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-04 08:25 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,43 +537,40 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>You played the Petrov Defense (1...e5 2.Nf3 Nf6), which is a solid opening choice. The early moves were reasonable, with 3...Qe7 being a safe response to 3.Nxe5, and you managed to equalize material by recapturing pieces effectively. However, the position became complex quickly with tactical complications that required precise calculation.</p>
+<p>You played the Petrov Defense (1...e5 2.Nf3 Nf6), which is a solid but passive opening choice. The early moves were reasonable, though 3...Qe7 is slightly unusual - most players prefer 3...d6 to keep the knight on e5. Your development with 5...d5 and 6...Bf5 showed good central control and piece activity.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 27...Qf4, which lost a massive 93 pawns of advantage according to the analysis. This move walked directly into checkmate, as it failed to address White's devastating threat of Qe8#. With your king trapped on f8 and no escape squares, this single move ended the game immediately.</p>
+<p>The critical turning point was 21...Qxc7, which lost over 11 pawns of advantage according to the analysis. This move allowed White's queen and bishops to coordinate perfectly for a devastating attack on your exposed king. After this capture, White gained complete control and was able to force checkmate through a series of checks.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>27...Qf4:</strong> This was the final and most costly blunder, losing 93 pawns of advantage. Instead of addressing the mate threat, you moved your queen away from defense, allowing 28.Qe8# immediately. Any move that either blocked the 8th rank or gave your king an escape square would have been better.</p>
-
-<p><strong>21...Qxc7:</strong> This recapture lost 11.6 pawns of advantage, allowing White's queen to dominate with checks and tactical threats. The problem was that it placed your queen on a square where it couldn't adequately coordinate with your other pieces for defense. A different piece recapture or declining the capture might have kept better defensive chances.</p>
-
-<p><strong>23...Kd8:</strong> Moving your king to d8 lost 5.2 pawns by walking into White's tactical web. This centralized your king in a dangerous position where White's pieces could coordinate for attack. Moving to a different square that offered more escape routes would have been preferable.</p>
+<p><strong>21...Qxc7:</strong> This recapture looked natural but was a massive mistake, losing 11.6 pawns of advantage. By capturing with the queen, you walked directly into White's tactical trap, allowing the powerful combination starting with 22.Qe4+. A different approach, perhaps ignoring the bishop and focusing on king safety, would have been much better.</p>
+<p><strong>23...Kd8:</strong> Moving the king to d8 lost another 5.2 pawns and made your position hopeless. This king was now perfectly placed for White's attack, allowing the devastating 24.Qd5+ to continue the forced sequence. The king needed to find a safer square, though by this point the position was already very difficult.</p>
+<p><strong>27...Qf4:</strong> This final move lost 93 pawns of advantage and allowed immediate checkmate with 28.Qe8#. While your position was already losing, this move gave White the perfect finish. Any other queen move would have at least avoided immediate mate.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>14...Qb4+:</strong> You played this check, but missed that 14...Kb8 would have been 1.6 pawns better. The king move would have improved your king safety by getting further from the center and potential tactics, while your queen check, though forcing, didn't improve your position significantly.</p>
-
-<p><strong>25...Ne7:</strong> You played this knight move, but 25...Kf8 was 1.5 pawns better. Moving your king toward safety earlier could have given you more defensive resources, whereas the knight move didn't address the growing threats against your exposed king position.</p>
+<p><strong>14...Qb4+ vs 14...Kb8:</strong> You played the natural check 14...Qb4+, but the computer suggests 14...Kb8 would have been 1.6 pawns better. The immediate check allowed White to consolidate with 15.c3, while moving the king to safety first would have improved your position significantly.</p>
+<p><strong>25...Ne7 vs 25...Kf8:</strong> You played 25...Ne7 trying to block some of the attack, but 25...Kf8 would have been 1.5 pawns better. Moving the king toward the corner might have offered slightly better defensive chances, though by this point White's attack was already overwhelming.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p>Your early opening moves showed good understanding of piece development and material balance. The sequence 4...Nxe4 5...d5 demonstrated proper tactical awareness by maintaining material equality. You also showed fighting spirit by creating counterplay with moves like 14...Qb4+, even though there were stronger alternatives available.</p>
+<p>Your early game showed good understanding of opening principles - you developed pieces actively with moves like 6...Bf5 and fought for the center with 5...d5. The move 10...Nd4 was particularly strong, centralizing your knight and creating threats against White's position. You also showed tactical awareness with 14...Qb4+, putting pressure on White even though an alternative was slightly better.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game never reached an endgame phase, as it concluded in the middlegame with a mating attack. White's coordinated pieces (queen and bishops) created a decisive attack against your exposed king, leading to checkmate on move 28.</p>
+<p>The game never reached a proper endgame as White's attack in the middlegame was too strong. After the critical mistake on move 21, White was able to force checkmate through a series of checks and tactical threats. This highlights the importance of king safety in the middlegame, especially when pieces are still active on the board.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>The primary lesson is king safety awareness - always check for mate threats before making any move. When your king is under attack or in a precarious position, your first priority should be to ensure its safety by either creating escape squares, blocking threats, or moving to a safer location. Practice recognizing back-rank mate patterns and similar tactical motifs.</p>
+<p>Focus on king safety before making "natural" recaptures. The move 21...Qxc7 looked automatic since your pawn was captured, but in chess you must always ask: "What does this move allow my opponent to do?" Before recapturing material, take a moment to check if your king will be safe from enemy tactics and coordinated attacks.</p>
 </div>
         </section>
 
