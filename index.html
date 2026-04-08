@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-08 01:07 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-08 04:25 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -485,7 +485,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">&#127919;</div>
-                <div class="value">621</div>
+                <div class="value">613</div>
                 <div class="label">Current Rating</div>
             </div>
             <div class="stat-card">
@@ -500,7 +500,7 @@
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">169</div>
+                <div class="value">170</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -516,61 +516,68 @@
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge win">
-                <span>&#128293;</span>
-                <span>Current Streak: 1 Win</span>
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 1 Loss</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge win">Won</div>
+                <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
-                    <span><span class="color-icon">&#9823;</span> Played as Black</span>
-                    <span>vs vigakkk (626)</span>
+                    <span><span class="color-icon">&#9817;</span> Played as White</span>
+                    <span>vs omarhasan01 (648)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/166967610636" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/167012112614" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The game opened with the Ruy Lopez (1.e4 e5 2.Nf3 Nc6 3.Bb5), but Black chose the unusual 3...Nb4, which isn't a main line response. While this move isn't terrible, it allowed White to gain the initiative with 4.Nxe5, winning the central pawn immediately. The opening quickly became tactical and sharp, requiring precise calculation from both sides.</p>
+<p>The opening followed an Alekhine's Defense variation that transposed into tactical complications early. While both sides developed reasonably, White's 2. Bc4 was slightly inaccurate - the more natural 2. e5 would have been stronger, immediately challenging the knight and gaining central space.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 5...b5, which lost a massive 4.8 pawns of advantage according to the engine. This move weakened Black's queenside structure and failed to address the immediate tactical threats on the board. Instead of trying to chase White's bishop, Black needed to focus on king safety and piece development to handle White's aggressive attack.</p>
+<p>The critical turning point was 32. Nc5, which was a massive blunder losing nearly 88 pawns of advantage according to the engine. This move allowed Black to coordinate a devastating attack with 32...Qf5+, leading to a forced sequence of checks that drove the White king into a mating net. What seemed like an active knight move actually walked into a tactical disaster.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>4...c6:</strong> This move lost 3.2 pawns of advantage, going from a manageable position to a difficult one. After White captured the e5 pawn with the knight, Black needed to focus on rapid development rather than attacking the bishop, as this gave White too much time to consolidate the extra material.</p>
-<p><strong>5...b5:</strong> This was the game's biggest blunder, losing 4.8 pawns of advantage. The move further weakened Black's position by creating holes on the queenside while White's pieces were already dominating the center. Black should have prioritized king safety with moves like ...d6 or ...Nf6.</p>
-<p><strong>6...Bd6:</strong> Another significant blunder losing 2.5 pawns, this move walked into White's tactical sequence. The bishop became a target and allowed White to continue the devastating knight fork on f7, winning material and keeping Black's king exposed in the center.</p>
+<p><strong>32. Nc5:</strong> This was the game-losing blunder, transforming a difficult but holdable position into a lost one. The knight move looked active but ignored Black's powerful queen and rook coordination, allowing the devastating 32...Qf5+ that started the mating attack.</p>
+
+<p><strong>12. O-O-O:</strong> Castling queenside was very dangerous given Black's active pieces and potential for attack on that flank. With Black's pieces already well-coordinated and the b-file opening, this exposed the White king unnecessarily when kingside castling would have been much safer.</p>
+
+<p><strong>23. Nf4:</strong> After capturing Black's bishop on d1, this knight move failed to address the tactical threats properly. The knight became awkwardly placed and didn't help defend against Black's growing pressure on White's exposed king position.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>No significant missed opportunities were identified by the engine analysis. Black was fighting from a losing position for most of the game due to the early blunders, so the focus was more on damage control rather than finding winning chances.</p>
+<p><strong>Move 2:</strong> Instead of 2. Bc4, the strong 2. e5 would have immediately attacked the knight and seized central control. This classical approach gives White better piece coordination and a more comfortable advantage in the center.</p>
+
+<p><strong>Move 21:</strong> Rather than 21. Bd6, the move 21. Be5 would have been much stronger, centralizing the bishop on an excellent square where it controls key central squares and supports White's position more effectively.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>23...Be6:</strong> This solid move improved Black's position slightly by developing the bishop to an active square and supporting the center. The bishop on e6 helped coordinate Black's pieces and put pressure on White's advanced pawns.</p>
-<p><strong>24...Rxf4:</strong> Excellent tactical awareness! This move captured White's queen, which was a decisive material gain that immediately turned the game around. This shows good pattern recognition in finding the winning tactical shot when the opportunity presented itself.</p>
+<p><strong>17. Bf4:</strong> This was an excellent centralizing move that improved the bishop's scope and maintained material balance while keeping pieces active. The bishop found a strong square where it could influence both the center and Black's king position.</p>
+
+<p><strong>10. Bxd5:</strong> A perfectly timed capture that maintained the material balance while simplifying the position appropriately. This exchange helped White maintain good piece activity without falling behind in development.</p>
+
+<p><strong>15. Kb1:</strong> A necessary and well-timed king move that escaped the checks while keeping the king relatively safe. This showed good defensive awareness in a tactical position where king safety was paramount.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game didn't reach a proper endgame as White resigned after losing the queen to 24...Rxf4. Despite being behind for most of the game, Black showed excellent fighting spirit and was rewarded when White made a tactical oversight that allowed the queen capture.</p>
+<p>The game never reached a proper endgame as White's king was hunted across the board by Black's coordinated pieces. The final position shows a classic mating pattern with the rook delivering mate on d8 while the king was trapped on b8 with no escape squares.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>The main lesson is to prioritize king safety and piece development over attacking enemy pieces in the opening. When your opponent wins material early (like the e5 pawn), focus on getting your king to safety and your pieces developed rather than trying to win material back immediately with moves like ...c6 and ...b5 that weaken your position.</p>
+<p>The most important lesson from this game is king safety - particularly avoiding unnecessary risks like castling into danger (move 12) and making moves that ignore opponent threats (move 32). Always ask yourself "Is my king safe?" before making aggressive moves, and look for your opponent's most dangerous threats before committing to a plan.</p>
 </div>
         </section>
 
@@ -698,8 +705,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [622, 630, 638, 647, 655, 647, 655, 647, 647, 639, 647, 639, 631, 639, 647, 639, 631, 639, 632, 639, 647, 654, 661, 653, 645, 637, 629, 621, 613, 621];
-        const dates = ["2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-28", "2026-03-28", "2026-03-28", "2026-03-28", "2026-03-30", "2026-03-30", "2026-03-30", "2026-03-30", "2026-03-31", "2026-03-31", "2026-04-01", "2026-04-01", "2026-04-02", "2026-04-02", "2026-04-03", "2026-04-03", "2026-04-03", "2026-04-04", "2026-04-04", "2026-04-04", "2026-04-07", "2026-04-07"];
+        const ratings = [630, 638, 647, 655, 647, 655, 647, 647, 639, 647, 639, 631, 639, 647, 639, 631, 639, 632, 639, 647, 654, 661, 653, 645, 637, 629, 621, 613, 621, 613];
+        const dates = ["2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-27", "2026-03-28", "2026-03-28", "2026-03-28", "2026-03-28", "2026-03-30", "2026-03-30", "2026-03-30", "2026-03-30", "2026-03-31", "2026-03-31", "2026-04-01", "2026-04-01", "2026-04-02", "2026-04-02", "2026-04-03", "2026-04-03", "2026-04-03", "2026-04-04", "2026-04-04", "2026-04-04", "2026-04-07", "2026-04-07", "2026-04-08"];
 
         new Chart(ctx, {
             type: 'line',
