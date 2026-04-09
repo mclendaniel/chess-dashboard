@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-09 08:56 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-09 10:01 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,45 +537,37 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening started with a King's Pawn game transitioning into the Giuoco Piano, which is a solid classical approach. However, the early 3. Qf3 was premature as it allowed Black to gain time with 4... Nd4, forcing your queen to retreat. Generally, it's better to develop knights before bishops and avoid bringing the queen out too early where it can be attacked.</p>
+<p>The opening followed the Giuoco Piano structure but with some inaccuracies. White's early Qf3 on move 3 wasn't ideal as it exposed the queen and didn't contribute to development, and Black's Nd4-c6 maneuver wasted time. Both sides developed reasonably well despite these minor missteps.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point came with 12. Qh5+, which appears aggressive but actually threw away a massive advantage of 4.0 pawns worth of material! This check forced Black's pieces into better defensive positions rather than capitalizing on your superior development. Sometimes the most forcing move isn't the best move.</p>
+<p>The critical turning point was 12.Qh5+, which Stockfish identifies as a massive blunder losing 4.0 pawns of advantage. This premature attack allowed Black to consolidate with g6, when White had a winning position that suddenly became roughly equal. This shows the danger of rushing into attacks without proper preparation.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>12. Qh5+:</strong> This check lost 4.0 pawns of advantage, transforming a winning position into a roughly equal one. The move forced Black's king to safety while improving Black's pawn structure with g6, creating defensive resources you should have avoided giving your opponent.</p>
-
-<p><strong>18. Bxg6:</strong> This capture lost 2.7 pawns of advantage, going from a winning +2.5 to a slightly losing position. Taking on g6 opened lines for Black's pieces and gave up your strong bishop without sufficient compensation.</p>
-
-<p><strong>16. b4:</strong> This pawn advance was premature, losing 2.7 pawns of advantage when you had better tactical opportunities available. Instead of improving your pieces or creating direct threats, this move allowed Black to consolidate and defend more effectively.</p>
+<p><strong>12.Qh5+</strong> was the biggest mistake, transforming a winning position (+4.3) into an equal game (+0.3). The check looks aggressive but actually helps Black by forcing the defensive g6, which solidifies Black's kingside. <strong>18.Bxg6</strong> was another significant error, losing 2.7 pawns of advantage and allowing Black to potentially turn the tables. <strong>16.b4</strong> was also problematic, wasting time on a pawn advance when White should have maintained pressure with more direct attacking moves.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p><strong>11. Ne4 miss:</strong> You played 11. Ne4, but missed the much stronger 11. Bxd5, which would have been 1.8 pawns better. Capturing the knight on d5 would have won material immediately while maintaining your attack, whereas the knight retreat allowed Black to reorganize their pieces and defend more effectively.</p>
+<p><strong>11.Ne4</strong> was played, but Stockfish shows that <strong>11.Bxd5</strong> would have been 1.8 pawns better. This would have captured the centralized knight immediately, maintaining White's strong advantage. The bishop capture would have opened lines and kept Black's king under more pressure than allowing the knight to retreat.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>9. exd5:</strong> Excellent decision to capture in the center, maintaining material balance while opening lines for your pieces. This move kept your development advantage and created tactical opportunities.</p>
-
-<p><strong>17. Bf7+:</strong> Great tactical shot that improved your position significantly! This check forced Black's king into a more vulnerable position and set up the winning combination that followed.</p>
-
-<p><strong>19. Qxh8+:</strong> Perfect finish! This capture of the rook secured a winning material advantage and forced Black's resignation. Sometimes the simplest tactical blow is the most effective.</p>
+<p><strong>9.exd5</strong> was excellent, opening the center and maintaining White's advantage. <strong>17.Bf7+</strong> was a strong tactical shot that forced Black's king to a worse square and set up the winning combination. <strong>19.Qxh8+</strong> was the culmination of White's attack, finally converting the advantage into a winning material gain that forced resignation.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game didn't reach a true endgame as Black resigned after you won the exchange with 19. Qxh8+. Your tactical sequence from moves 17-19 recovered from earlier mistakes and secured the victory through direct attack on the exposed Black king.</p>
+<p>The game never reached a proper endgame as Black resigned after White won the exchange with Qxh8+. White successfully converted a tactical sequence into a material advantage that was too large for Black to overcome.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on looking for concrete tactical shots (like capturing material) before making "attacking" moves that don't accomplish anything specific. The missed 11. Bxd5 and the premature 12. Qh5+ show that sometimes the quiet, forcing move is stronger than the flashy check or attack.</p>
+<p>Focus on avoiding premature attacks like 12.Qh5+. Before launching an assault, ensure your pieces are optimally placed and the attack creates genuine threats rather than helping your opponent defend. Calculate whether forcing moves actually improve your position or just look aggressive.</p>
 </div>
         </section>
 
