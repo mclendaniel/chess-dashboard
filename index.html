@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-11 21:21 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-11 22:18 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -485,7 +485,7 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="icon">&#127919;</div>
-                <div class="value">646</div>
+                <div class="value">629</div>
                 <div class="label">Current Rating</div>
             </div>
             <div class="stat-card">
@@ -500,7 +500,7 @@
             </div>
             <div class="stat-card loss">
                 <div class="icon">&#10060;</div>
-                <div class="value">171</div>
+                <div class="value">173</div>
                 <div class="label">Losses</div>
             </div>
             <div class="stat-card">
@@ -510,72 +510,68 @@
             </div>
             <div class="stat-card">
                 <div class="icon">&#128200;</div>
-                <div class="value">50%</div>
+                <div class="value">49%</div>
                 <div class="label">Win Rate</div>
             </div>
         </div>
 
         <div style="text-align: center;">
-            <div class="streak-badge win">
-                <span>&#128293;</span>
-                <span>Current Streak: 2 Wins</span>
+            <div class="streak-badge loss">
+                <span>&#10052;</span>
+                <span>Current Streak: 2 Losses</span>
             </div>
         </div>
 
         <section>
             <h2><span class="emoji">&#127918;</span> Most Recent Game</h2>
             <div class="game-header">
-                <div class="result-badge win">Won</div>
+                <div class="result-badge loss">Lost</div>
                 <div class="game-meta">
                     <span><span class="color-icon">&#9817;</span> Played as White</span>
-                    <span>vs jerome964 (627)</span>
+                    <span>vs elisabettasassarini (634)</span>
                     <span>Rapid</span>
                 </div>
-                <a href="https://www.chess.com/game/live/167167587262" class="view-game-btn" target="_blank">View Game &#8594;</a>
+                <a href="https://www.chess.com/game/live/167182588904" class="view-game-btn" target="_blank">View Game &#8594;</a>
             </div>
 
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening started well with a reasonable Sicilian setup, though 2. Bc4 is a bit passive compared to more aggressive options like 2. Nf3 or 2. Nc3. Both players developed pieces logically, and the pawn exchange in the center with 4...d5 5. exd5 exd5 was natural, leading to a roughly equal position.</p>
+<p>The opening started reasonably well with a Vienna Game setup. White chose a solid approach with 2.Bc4 and 3.Nc3, developing pieces toward the center. The early pawn advances g4 and h4 created some attacking chances on the kingside, though they also weakened White's king position.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 11. d3, which lost a massive 6.8 pawns of advantage according to the computer evaluation. This move allowed Black to completely turn the tables from a slightly better position for White (+1.1) to a winning advantage for Black (-5.7). This single move transformed what should have been a promising middlegame into a difficult defensive struggle.</p>
+<p>The critical turning point came on move 54 with Kc6, which lost nearly 28 pawns of advantage according to the engine. At this point, White was in a difficult endgame but this king move allowed Black to create unstoppable threats with the passed a-pawn. This single move essentially sealed White's fate and led directly to the mating attack.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>11. d3:</strong> This was the game's biggest blunder, losing nearly 7 pawns of advantage. The move fails to address Black's threats and wastes a crucial tempo when more active play was needed. A move like 11. Qg4 or 11. Qf3 would have maintained pressure on Black's position.</p>
-
-<p><strong>10. Be4:</strong> This retreat lost nearly 6 pawns of advantage, allowing Black to improve their position significantly. The bishop was better placed on d3 where it had been, and this move gave Black too much freedom in the center. Keeping the bishop active or finding a more forcing continuation would have been superior.</p>
-
-<p><strong>19. Rae1:</strong> Another major blunder that lost 4.5 pawns, taking the position from roughly equal to clearly losing. This move failed to create any meaningful threats while allowing Black to consolidate their advantage. More active piece play or central pressure would have offered better practical chances.</p>
+<p><strong>14. Qd2:</strong> This move lost 7 pawns of advantage by allowing Black's knight fork 14...Nxf3+. The queen was poorly placed and didn't defend against Black's tactical shot. A move like Qc2 or Qb3 would have kept the position more manageable.</p>
+<p><strong>24. Kd2:</strong> After the knight fork, this king move lost another 3.2 pawns by allowing 24...Nxh1, losing the rook. The king was walking into more danger instead of finding safety. Kc2 might have been a better try to keep the king safer.</p>
+<p><strong>54. Kc6:</strong> The most devastating blunder, losing 27.9 pawns. This allowed Black's a-pawn to become unstoppable while also walking into a mating net. The king needed to stay closer to stop Black's pawns rather than advancing so aggressively.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>No significant missed opportunities were identified by the analysis beyond the major blunders already discussed. The primary issue was the series of passive moves that allowed Black to seize control rather than missing specific tactical shots.</p>
+<p><strong>22. Bc1:</strong> Instead of retreating the bishop, White missed 22. gxf6, which would have opened up Black's king position and created attacking chances worth 1.6 pawns. This capture would have kept more pressure on Black's position.</p>
+<p><strong>23. Nxg5:</strong> White missed the strong 23. Bb5+, which would have been 1.5 pawns better by giving check and disrupting Black's coordination. The bishop move would have created more tactical complications in White's favor.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>29. Qxf5:</strong> Excellent move that gained a full pawn of advantage! This capture removed a key defender while bringing the queen to a powerful central square, increasing the attack against Black's exposed king.</p>
-
-<p><strong>28. Ne4:</strong> Strong centralization that gained over half a pawn in value. The knight move attacked the weakened f6 pawn while positioning the piece perfectly for the final assault, showing good tactical awareness in the winning phase.</p>
-
-<p><strong>23. Qxa8+:</strong> Good practical decision that simplified into a winning position. By forcing the trade of heavy pieces while maintaining material advantage, you correctly identified that the endgame would be easier to convert than the complex middlegame.</p>
+<p><strong>6. g4:</strong> This aggressive pawn advance was well-timed, gaining space on the kingside and forcing Black's bishop to retreat. The move created attacking potential and put pressure on Black's position early in the game.</p>
+<p><strong>10. g5:</strong> Following up the kingside expansion, this move continued to cramp Black's pieces and gained more space. It also opened up potential attacking lines against Black's king, showing good aggressive instincts.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>The game didn't reach a pure endgame as Black resigned in the middlegame after the devastating knight fork 30. Nxd6. Your technique in the final phase was excellent - you correctly converted your material advantage into decisive tactical threats that forced resignation.</p>
+<p>The endgame was poorly handled, with White's king becoming too active and walking into Black's mating net. With Black having extra material and active pieces, White needed to focus on creating counterplay or defensive resources. Instead, the aggressive king march allowed Black to coordinate a beautiful checkmate with queen and rook.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>Focus on maintaining piece activity rather than making passive, consolidating moves like d3 or Be4. When you have a good position, look for ways to increase pressure and create threats rather than retreating pieces or making slow pawn moves. Active piece play will help you convert advantages more consistently.</p>
+<p>Focus on tactical awareness, especially looking for opponent's threats before making your move. The biggest blunder (14. Qd2) came from not seeing Black's knight fork, while the endgame disaster resulted from not recognizing when to switch from attack to defense. Always ask yourself "What is my opponent threatening?" before moving.</p>
 </div>
         </section>
 
@@ -684,14 +680,14 @@
                 <div class="endgame-card losing">
                     <h4>&#11015;&#65039; Losing Positions</h4>
                     <div class="big-number">21%</div>
-                    <div class="detail">12 saved / 56 games</div>
+                    <div class="detail">12 saved / 57 games</div>
                     <div class="detail">Wins + Draws from behind</div>
                 </div>
                 <div class="endgame-card equal">
                     <h4>&#9878;&#65039; Equal Positions</h4>
-                    <div class="big-number">43%</div>
-                    <div class="detail">6 won / 14 games</div>
-                    <div class="detail">Drew 2 &bull; Lost 6</div>
+                    <div class="big-number">40%</div>
+                    <div class="detail">6 won / 15 games</div>
+                    <div class="detail">Drew 2 &bull; Lost 7</div>
                 </div>
             </div>
         </section>
@@ -703,8 +699,8 @@
 
     <script>
         const ctx = document.getElementById('ratingChart').getContext('2d');
-        const ratings = [647, 647, 639, 647, 639, 631, 639, 647, 639, 631, 639, 632, 639, 647, 654, 661, 653, 645, 637, 629, 621, 613, 621, 613, 621, 629, 637, 630, 638, 646];
-        const dates = ["2026-03-27", "2026-03-28", "2026-03-28", "2026-03-28", "2026-03-28", "2026-03-30", "2026-03-30", "2026-03-30", "2026-03-30", "2026-03-31", "2026-03-31", "2026-04-01", "2026-04-01", "2026-04-02", "2026-04-02", "2026-04-03", "2026-04-03", "2026-04-03", "2026-04-04", "2026-04-04", "2026-04-04", "2026-04-07", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-11", "2026-04-11", "2026-04-11", "2026-04-11"];
+        const ratings = [639, 647, 639, 631, 639, 647, 639, 631, 639, 632, 639, 647, 654, 661, 653, 645, 637, 629, 621, 613, 621, 613, 621, 629, 637, 630, 638, 646, 637, 629];
+        const dates = ["2026-03-28", "2026-03-28", "2026-03-28", "2026-03-30", "2026-03-30", "2026-03-30", "2026-03-30", "2026-03-31", "2026-03-31", "2026-04-01", "2026-04-01", "2026-04-02", "2026-04-02", "2026-04-03", "2026-04-03", "2026-04-03", "2026-04-04", "2026-04-04", "2026-04-04", "2026-04-07", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-11", "2026-04-11", "2026-04-11", "2026-04-11", "2026-04-11", "2026-04-11"];
 
         new Chart(ctx, {
             type: 'line',
