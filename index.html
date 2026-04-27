@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-27 10:01 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-27 12:13 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,37 +537,45 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>You played the Bishop's Opening (1.e4 e5 2.Bc4) which is a solid choice for developing pieces quickly. Your early moves like 3.Nf3, 5.Bb2, and 6.Nc3 developed pieces harmoniously, though Black's early queen sortie with 2...Qf6 should have been met with more direct punishment. The position remained roughly equal through the opening phase.</p>
+<p>The opening followed the Bishop's Opening with 2.Bc4, which is a solid choice. Black's early 2...Qf6 was somewhat premature, bringing the queen out early and allowing White to develop naturally with moves like 3.Nf3 and later 5.Bb2. White's setup with b3, Bb2, and Nc3 created a reasonable position, though castling queenside on move 8 added some tactical complexity.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point was 21.Rg4+, where you had a completely winning position (up nearly 10 points of material) but chose a move that threw away almost all of your advantage. This single move transformed a forced mate situation into a merely good position, demonstrating how important it is to calculate carefully when you have a winning attack.</p>
+<p>The critical turning point came on move 21 with Rg4+, which squandered a massive winning advantage of nearly 10 points of material value. This move allowed Black's queen to interpose with 21...Qe5, when White should have been looking for more forcing continuations to capitalize on the exposed black king. This single move transformed a completely winning position into a merely good one.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>21.Rg4+</strong>: This move lost a massive 9.5 points of advantage when you had a forced mate. Instead of checking with the rook, you should have looked for more forcing moves that maintained the mating attack. <strong>25.Nh6</strong>: Another huge blunder that threw away your winning position, losing 9.5 points of advantage. The knight move allowed Black's pieces to coordinate and escape the worst of the attack. <strong>28.Be6</strong>: Yet another move that squandered nearly your entire advantage, showing a pattern of not finding the strongest continuations when ahead. In winning positions, you need to look for the most forcing moves - checks, captures, and threats - rather than seemingly natural developing moves.</p>
+<p><strong>21.Rg4+:</strong> This check looks natural but actually threw away a huge advantage, losing 9.5 points of evaluation. After 20.Rxg7+ Kh8, White needed to find more forcing moves to keep the attack going rather than allowing Black's queen to defend with 21...Qe5.</p>
+
+<p><strong>25.Nh6:</strong> Another major blunder that lost nearly 9.5 points of advantage. The knight move to h6 didn't accomplish enough, and White should have been looking for more direct attacking moves or consolidating the material advantage already gained.</p>
+
+<p><strong>28.Be6:</strong> This move repeated the same position unnecessarily and lost another 9.4 points. Instead of repeating moves, White should have been converting the winning position with more purposeful play, perhaps improving piece coordination or advancing pawns.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>The Stockfish analysis doesn't identify specific missed tactics beyond the major blunders, but the pattern is clear: when you achieved a winning position around move 20, you failed to find the forcing sequences that would have maintained your advantage. In such dominant positions, you should systematically check all forcing moves (checks, captures, threats) before playing more positional moves.</p>
+<p>No significant missed opportunities beyond the major blunders already discussed. The main pattern was giving back huge advantages rather than missing smaller tactical shots.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>16.Nf5</strong>: Excellent centralization of the knight, attacking the queen and gaining space in the center. This move improved your position and kept up the pressure on Black's somewhat loose position. <strong>15.Nxd4</strong>: Good recapture that maintained material balance while keeping your pieces actively placed. <strong>31.Nf7+</strong>: Nice tactical shot that forced the exchange and maintained your advantage, showing you can find good tactical moves when focused.</p>
+<p><strong>16.Nf5:</strong> An excellent move that attacked the black queen and improved White's position. The knight found a strong outpost and forced Black to make concessions with the queen placement.</p>
+
+<p><strong>15.Nxd4:</strong> A solid recapture that maintained material balance while keeping good piece activity. This natural developing move kept White's position comfortable.</p>
+
+<p><strong>31.Nf7+:</strong> A nice tactical shot that forced the exchange of material while maintaining winning chances. The fork pattern between king and rook was well-spotted.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>You actually reached a winning endgame with queen and rook versus Black's king, despite the earlier blunders. The final position shows you had completely dominated material and were driving Black's king around effectively. Unfortunately, time management cost you the game as you ran out of time in a completely winning position.</p>
+<p>White successfully promoted a pawn to a queen on move 48 and was driving the black king around the board effectively with checks and threats. The position was completely winning for White with Queen + Rook + Bishop vs. lone King, but time ran out before the mate could be delivered. With more time, this would have been a straightforward technical win.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>When you have a winning position, slow down and systematically examine all forcing moves (checks, captures, and direct threats) before playing. Your biggest losses came from playing natural-looking moves in positions where more forcing continuations would have maintained your decisive advantage. Practice recognizing when you're winning and then calculating more carefully to convert that advantage.</p>
+<p>The biggest lesson is to avoid "automatic" moves when you have a huge advantage - take time to find the most forcing continuation. When you're winning big (like after 20.Rxg7+), look for the strongest, most direct moves rather than natural-looking checks that might let your opponent back into the game. Calculate a bit deeper to maintain pressure when you're on top.</p>
 </div>
         </section>
 
