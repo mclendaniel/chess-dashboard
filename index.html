@@ -476,7 +476,7 @@
     <div class="container">
         <header>
             <h1>&#9823; skilletobviously's Chess Dashboard</h1>
-            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-28 10:09 UTC</p>
+            <p class="subtitle">Auto-updated every hour &bull; Last update: 2026-04-28 12:18 UTC</p>
             <button id="refreshBtn" class="refresh-btn" onclick="refreshDashboard()">
                 <span class="refresh-icon">&#8635;</span> Update Now
             </button>
@@ -537,41 +537,43 @@
             <h3 style="margin-bottom: 1rem; color: #888; font-size: 1rem;">&#128269; Game Analysis</h3>
             <div class="analysis-section">
 <h4>Opening Assessment</h4>
-<p>The opening developed reasonably well with the Bishop's Opening (2. Bc4), though Black's early 2...Qf6 was somewhat premature, bringing the queen out too early. White developed pieces naturally with Nf3, Bb2, and Nc3, while both sides castled safely. The position remained roughly balanced through the opening phase.</p>
+<p>The Bishop's Opening with 2. Bc4 was a solid choice, and both players developed reasonably well in the early game. Black's 2...Qf6 was somewhat unusual but not terrible, and the position remained balanced through the first several moves with normal piece development and castling.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Critical Moment</h4>
-<p>The critical turning point came on move 21 with Rg4+, which lost a massive 95.1 pawns of advantage according to the computer analysis. At this point, White had a completely winning position worth +100.0 but threw it away with this poorly calculated check. This single move transformed a trivial win into a difficult technical position.</p>
+<p>The critical turning point came on move 21 with Rg4+, which threw away a massive winning advantage of nearly 10 points of material value. You had built up an excellent attacking position after the tactical sequence that won Black's queen, but this check allowed Black's queen to block on e5, trading it off and dramatically reducing your advantage. This single move turned a completely winning position into a much more manageable endgame for Black.</p>
 </div>
 
 <div class="analysis-section blunder">
 <h4>Notable Blunders</h4>
-<p><strong>21. Rg4+:</strong> This check looked natural but was a devastating blunder, losing 95.1 pawns of advantage. Instead of checking immediately, White should have looked for more forcing moves to maintain the crushing attack. The rook move allowed Black's pieces to coordinate better and escape the worst of the attack.</p>
-<p><strong>25. Nh6:</strong> Another major blunder losing 94.7 pawns, dropping the evaluation from +99.9 to +5.2. The knight move looked aggressive but didn't accomplish anything concrete, allowing Black to consolidate. White should have focused on converting the material advantage more systematically.</p>
-<p><strong>28. Be6:</strong> This bishop retreat lost 94.5 pawns of advantage, continuing the pattern of throwing away winning positions. The bishop was better placed maintaining pressure rather than retreating to a less active square where it accomplished little.</p>
+<p><strong>21. Rg4+</strong> was the biggest mistake of the game, losing over 9 points of advantage. Instead of giving check, you should have looked for ways to maintain your powerful attack and material advantage. The check forced Black's queen to e5 where it could be traded off, eliminating your huge lead.</p>
+
+<p><strong>25. Nh6</strong> was another major blunder that lost nearly 9.5 points of advantage. This knight move didn't accomplish anything meaningful and allowed Black to consolidate their position. A more direct approach maintaining pressure would have been much stronger.</p>
+
+<p><strong>28. Be6</strong> continued the pattern of inaccurate moves, losing another 9+ points of advantage. Moving the bishop back and forth without a clear plan allowed Black to reorganize and escape what should have been a hopeless position.</p>
 </div>
 
 <div class="analysis-section miss">
 <h4>Notable Misses</h4>
-<p>No specific missed opportunities were highlighted by the analysis beyond the major blunders discussed above. The main issue wasn't missing good moves, but rather playing moves that squandered huge advantages already obtained.</p>
+<p>The Stockfish data doesn't identify specific missed opportunities beyond the major blunders discussed above. Your main missed opportunity was converting the winning position you had built up through move 20 - you had excellent chances but let them slip away through the series of inaccurate moves that followed.</p>
 </div>
 
 <div class="analysis-section good">
 <h4>Notable Good Moves</h4>
-<p><strong>16. Nf5:</strong> This knight move was well-played, improving White's position and gaining 0.2 pawns of advantage. The knight found an excellent outpost where it attacked key squares and supported White's growing initiative.</p>
-<p><strong>15. Nxd4:</strong> A solid recapture that maintained material equality while keeping good piece coordination. This natural developing move kept White's position harmonious.</p>
-<p><strong>31. Nf7+:</strong> This knight fork was a nice tactical shot, gaining material and maintaining White's advantage in the simplified position. The check forced Black's pieces into awkward positions.</p>
+<p><strong>16. Nf5</strong> was an excellent tactical shot that improved your position by attacking Black's queen and creating threats. This move showed good tactical awareness in a complex position.</p>
+
+<p><strong>15. Nxd4</strong> was a solid recapture that maintained your central presence and kept the position sharp. <strong>31. Nf7+</strong> was another good tactical move that forced Black's pieces into awkward positions, showing you can spot these forcing moves when they arise.</p>
 </div>
 
 <div class="analysis-section">
 <h4>Endgame Notes</h4>
-<p>White successfully converted to a winning endgame with queen and rook versus king, ultimately promoting a pawn to queen on move 48. The technique in the final phase was good, with White systematically improving the position and creating threats. Unfortunately, the game was lost on time rather than being decided over the board.</p>
+<p>Despite the earlier inaccuracies, you actually converted to a winning endgame with your pawn promotion to a queen on move 48. You were giving checks and had a clearly winning position with queen and bishop versus just a king, but unfortunately lost on time while pursuing the mate.</p>
 </div>
 
 <div class="analysis-section highlight">
 <h4>Key Lesson</h4>
-<p>The main lesson is to avoid "automatic" moves when you have a winning position - slow down and calculate carefully. When you have a huge advantage, focus on simple, forcing moves that maintain your dominance rather than flashy-looking moves that might backfire. In winning positions, patience and technique matter more than tactics.</p>
+<p>The main lesson is to slow down and carefully evaluate positions when you have a big advantage. After winning material or gaining a strong attack, resist the urge to play forcing moves like checks automatically - instead, look for moves that maintain your advantage and don't give your opponent unnecessary counterplay or trading opportunities.</p>
 </div>
         </section>
 
